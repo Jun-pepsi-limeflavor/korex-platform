@@ -55,3 +55,41 @@ export function formatFileSize(bytes: number): string {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
+
+
+
+// src/lib/firebase/storage.ts 하단에 추가
+
+export async function uploadQuoteFileToDrive(
+  userId: string,
+  quoteId: string,
+  file: File,
+  onProgress?: (percent: number) => void
+): Promise<{ fileName: string; storageUrl: string; fileSize: number }> {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("userId", userId);
+  formData.append("quoteId", quoteId);
+
+  // 업로드 시작 알림
+  onProgress?.(0);
+
+  const res = await fetch("/api/upload", {
+    method: "POST",
+    body: formData,
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.error || "Upload failed.");
+  }
+
+  onProgress?.(100);
+
+  return {
+    fileName: data.fileName,
+    storageUrl: data.viewUrl,   // storageUrl 자리에 Drive viewUrl 사용
+    fileSize: data.fileSize,
+  };
+}
