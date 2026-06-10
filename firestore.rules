@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users: 본인 문서만 읽기/쓰기
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Quotes: 인증된 사용자 생성, 본인 소유 문서 읽기/수정
+    match /quotes/{quoteId} {
+      allow create: if request.auth != null;
+      allow read, update: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+    }
+
+    // Orders: 인증된 사용자 생성, 본인 소유 읽기
+    match /orders/{orderId} {
+      allow create: if request.auth != null;
+      allow read: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+    }
+
+    // Managers: 인증된 사용자 읽기
+    match /managers/{managerId} {
+      allow read: if request.auth != null;
+    }
+  }
+}

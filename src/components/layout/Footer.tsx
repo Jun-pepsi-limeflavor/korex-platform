@@ -1,0 +1,108 @@
+import Link from "next/link";
+
+export function Footer() {
+  return (
+    <footer className="bg-[#0A1628] text-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+          {/* Brand */}
+          <div className="col-span-1 md:col-span-1">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-[#0066FF]">
+                <span className="text-xs font-bold text-white">KX</span>
+              </div>
+              <span className="text-lg font-bold tracking-tight">KOREX</span>
+            </div>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Korean Precision Manufacturing, On Demand. Access South Korea&apos;s elite manufacturing network.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["ISO 9001", "IATF 16949", "AS9100D", "KORUS FTA"].map((cert) => (
+                <span
+                  key={cert}
+                  className="rounded-sm border border-gray-700 px-2 py-0.5 text-xs text-gray-400"
+                >
+                  {cert}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">Capabilities</h4>
+            <ul className="space-y-2">
+              {[
+                ["CNC Machining", "/capabilities/cnc-machining"],
+                ["Injection Molding", "/capabilities/injection-molding"],
+                ["Sheet Metal", "/capabilities/sheet-metal"],
+                ["Die Casting", "/capabilities/die-casting"],
+                ["Construction Components", "/capabilities/construction-components"],
+                ["Electronics / PCB", "/capabilities/electronics-pcb"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="text-sm text-gray-400 hover:text-white transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">Company</h4>
+            <ul className="space-y-2">
+              {[
+                ["How It Works", "/how-it-works"],
+                ["Industries", "/industries"],
+                ["Contact Us", "/contact"],
+                ["Get a Quote", "/signup"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="text-sm text-gray-400 hover:text-white transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">Contact</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>
+                <a href="mailto:hello@korex.io" className="hover:text-white transition-colors">
+                  hello@korex.io
+                </a>
+              </li>
+              <li>
+                <a href="tel:+18005550000" className="hover:text-white transition-colors">
+                  +1 (800) 555-0000
+                </a>
+              </li>
+            </ul>
+            <div className="mt-4">
+              <p className="text-xs text-gray-500">Incheon → LAX in 24h air freight</p>
+              <p className="text-xs text-gray-500">12–15 day sea freight to West Coast</p>
+            </div>
+          </div>
+        </div>
+
+        <hr className="my-8 border-gray-800" />
+
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-gray-500">
+            © {new Date().getFullYear()} KOREX Platform. All rights reserved.
+          </p>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="text-xs text-gray-500 hover:text-white">Privacy Policy</Link>
+            <Link href="/terms" className="text-xs text-gray-500 hover:text-white">Terms of Service</Link>
+            <span className="text-xs text-gray-500">NDA Available on Request</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
