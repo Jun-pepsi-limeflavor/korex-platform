@@ -126,7 +126,7 @@ export default function IndustriesPage() {
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="mb-3 text-2xl font-bold text-[#1A1A2E]">Your Industry. Korean Standards.</h2>
           <p className="mb-8 text-[#6B7280]">
-            Korea&apos;s manufacturing sector is the most robotized in the world, serves Samsung, LG, Hyundai, and global Tier-1 OEMs. Every component produced through KOREX benefits from that industrial baseline — whatever your sector.
+            Korea&apos;s manufacturing sector is the most robotized in the world, serves Samsung, LG, Hyundai, and global Tier-1 OEMs. Every component produced through formadikor benefits from that industrial baseline — whatever your sector.
           </p>
           <Link
             href="/signup"

@@ -3,8 +3,8 @@
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { createQuote, updateQuote, submitQuote } from "@/lib/firebase/firestore";
-import { validateFile, formatFileSize } from "@/lib/firebase/storage";
+import { createQuote, updateQuote, submitQuote, uploadQuoteFile } from "@/lib/api/client";
+import { validateFile, formatFileSize } from "@/lib/utils/files";
 import { PROCESS_LABELS } from "@/types";
 import type { ManufacturingProcess, QuoteConfiguration, QualityRequirements } from "@/types";
 import { Upload, X, CheckCircle, ChevronRight, AlertCircle, Settings2, Package, Layers, Box, Building2, Cpu, MessageSquare } from "lucide-react";
@@ -109,35 +109,27 @@ export default function NewQuotePage() {
   };
 
   const uploadFiles = async (qId: string): Promise<{ fileName: string; driveFileId: string; viewUrl: string; fileSize: number }[]> => {
-    console.log("[uploadFiles] total files:", uploadedFiles.length);
     const results: { fileName: string; driveFileId: string; viewUrl: string; fileSize: number }[] = [];
     for (let i = 0; i < uploadedFiles.length; i++) {
       const uf = uploadedFiles[i];
-      if (uf.error) { console.log("[uploadFiles] skipping file with error:", uf.fileName, uf.error); continue; }
+      if (uf.error) continue;
       try {
-        console.log("[uploadFiles] uploading:", uf.fileName, uf.fileSize);
         setUploadedFiles((prev) => prev.map((f, idx) => (idx === i ? { ...f, progress: 30 } : f)));
-        const formData = new FormData();
-        formData.append("file", uf.file);
-        formData.append("userId", userProfile!.id);
-        formData.append("quoteId", qId);
-
-        const res = await fetch("/api/upload", { method: "POST", body: formData });
-        const json = await res.json();
-        console.log("[uploadFiles] API response:", res.status, json);
-
-        if (!res.ok) throw new Error(json.error ?? "Upload failed");
-
-        setUploadedFiles((prev) => prev.map((f, idx) => (idx === i ? { ...f, progress: 100, driveFileId: json.fileId, viewUrl: json.viewUrl } : f)));
-        results.push({ fileName: json.fileName, driveFileId: json.fileId, viewUrl: json.viewUrl, fileSize: uf.fileSize });
+        const result = await uploadQuoteFile(qId, uf.file, (percent) => {
+          setUploadedFiles((prev) => prev.map((f, idx) => (idx === i ? { ...f, progress: percent } : f)));
+        });
+        setUploadedFiles((prev) =>
+          prev.map((f, idx) =>
+            idx === i ? { ...f, progress: 100, driveFileId: result.driveFileId, viewUrl: result.viewUrl } : f
+          )
+        );
+        results.push(result);
       } catch (err) {
-        console.error("[uploadFiles] error for file:", uf.fileName, err);
         setUploadedFiles((prev) =>
           prev.map((f, idx) => (idx === i ? { ...f, error: err instanceof Error ? err.message : "Upload failed" } : f))
         );
       }
     }
-    console.log("[uploadFiles] results:", results.length);
     return results;
   };
 
@@ -151,7 +143,7 @@ export default function NewQuotePage() {
     try {
       let qId = quoteId;
       if (!qId) {
-        qId = await createQuote(userProfile.id, { process: selectedProcess });
+        qId = await createQuote({ process: selectedProcess });
         setQuoteId(qId);
       }
 

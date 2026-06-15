@@ -6,10 +6,8 @@ import {
   onAuthStateChanged,
   User as FirebaseUser,
 } from "firebase/auth";
-import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "./config";
-import type { User } from "@/types";
-
 const BLOCKED_DOMAINS = [
   "gmail.com", "yahoo.com", "hotmail.com", "outlook.com",
   "icloud.com", "aol.com", "protonmail.com", "live.com",
@@ -64,12 +62,6 @@ export async function signIn(email: string, password: string) {
 
 export async function logOut() {
   return signOut(auth);
-}
-
-export async function getUserProfile(uid: string): Promise<User | null> {
-  const docSnap = await getDoc(doc(db, "users", uid));
-  if (!docSnap.exists()) return null;
-  return { id: docSnap.id, ...docSnap.data() } as User;
 }
 
 export function onAuthChange(callback: (user: FirebaseUser | null) => void) {

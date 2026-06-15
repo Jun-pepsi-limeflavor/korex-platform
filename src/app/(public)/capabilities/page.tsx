@@ -19,7 +19,7 @@ export default function CapabilitiesPage() {
           <p className="mb-2 text-sm font-medium text-blue-400 uppercase tracking-wider">Our Capabilities</p>
           <h1 className="mb-4 text-4xl font-bold">6 Manufacturing Disciplines.</h1>
           <p className="text-lg text-gray-300">
-            From single precision components to complete assemblies — all from Korea&apos;s vetted manufacturing network, all managed through KOREX.
+            From single precision components to complete assemblies — all from Korea&apos;s vetted manufacturing network, all managed through formadikor.
           </p>
         </div>
       </section>

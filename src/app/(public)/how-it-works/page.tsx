@@ -63,7 +63,7 @@ const FAQS = [
   },
   {
     q: "How is my IP protected?",
-    a: "All uploaded files are encrypted at rest (AES-256). NDAs are available upon request — just email hello@korex.io before submitting files. We operate under strict confidentiality agreements with all partner facilities.",
+    a: "All uploaded files are encrypted at rest (AES-256). NDAs are available upon request — just email support@formadikor.io before submitting files. We operate under strict confidentiality agreements with all partner facilities.",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function HowItWorksPage() {
     <>
       <section className="bg-[#0A1628] py-16 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="mb-3 text-4xl font-bold">How KOREX Works</h1>
+          <h1 className="mb-3 text-4xl font-bold">How formadikor Works</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             From file upload to finished parts — a transparent, account-manager-driven process designed for North American buyers.
           </p>

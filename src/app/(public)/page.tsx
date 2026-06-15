@@ -108,7 +108,7 @@ const STEPS = [
 
 const TESTIMONIALS = [
   {
-    quote: "We reduced part cost by 31% versus our prior US supplier while improving tolerance capability. KOREX made the Korean supply chain accessible without us needing a sourcing team.",
+    quote: "We reduced part cost by 31% versus our prior US supplier while improving tolerance capability. formadikor made the Korean supply chain accessible without us needing a sourcing team.",
     name: "David Chen",
     title: "VP of Operations",
     company: "Torque Robotics",
@@ -124,7 +124,7 @@ const TESTIMONIALS = [
     metric: "11-day first article",
   },
   {
-    quote: "For our hardware startup, KOREX gives us production-grade Korean suppliers without the overhead of managing overseas relationships. The account manager model is genuinely different.",
+    quote: "For our hardware startup, formadikor gives us production-grade Korean suppliers without the overhead of managing overseas relationships. The account manager model is genuinely different.",
     name: "James Park",
     title: "Co-Founder & CTO",
     company: "Lumen Hardware",
@@ -334,8 +334,8 @@ export default function LandingPage() {
           </Link>
           <p className="mt-4 text-sm text-blue-200">
             Or speak with an account manager:{" "}
-            <a href="mailto:hello@korex.io" className="underline">
-              hello@korex.io
+            <a href="mailto:support@formadikor.io" className="underline">
+              support@formadikor.io
             </a>
           </p>
         </div>

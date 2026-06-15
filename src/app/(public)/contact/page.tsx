@@ -70,7 +70,7 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-[#0066FF] mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-[#1A1A2E]">Email</p>
-                      <a href="mailto:hello@korex.io" className="text-sm text-[#6B7280] hover:text-[#0066FF]">hello@korex.io</a>
+                      <a href="mailto:support@formadikor.io" className="text-sm text-[#6B7280] hover:text-[#0066FF]">support@formadikor.io</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

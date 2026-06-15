@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { PlusCircle, Upload, Phone, FileText, Package } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
-import { getUserQuotes, getUserOrders } from "@/lib/firebase/firestore";
+import { getUserQuotes, getUserOrders } from "@/lib/api/client";
 import { QuoteStatusBadge, OrderStatusBadge } from "@/components/dashboard/StatusBadge";
 import { PROCESS_LABELS } from "@/types";
 import type { Quote, Order } from "@/types";
@@ -18,10 +18,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (!userProfile?.id) return;
-    Promise.all([
-      getUserQuotes(userProfile.id),
-      getUserOrders(userProfile.id),
-    ]).then(([q, o]) => {
+    Promise.all([getUserQuotes(), getUserOrders()]).then(([q, o]) => {
       setQuotes(q.slice(0, 5));
       setOrders(o.slice(0, 5));
       setLoadingData(false);
@@ -40,7 +37,7 @@ export default function DashboardPage() {
           Welcome back, {userProfile?.firstName ?? "there"}.
         </h1>
         <p className="mt-1 text-sm text-gray-300">
-          Your KOREX dashboard — quotes, orders, and account management in one place.
+          Your formadikor dashboard — quotes, orders, and account management in one place.
         </p>
       </div>
 

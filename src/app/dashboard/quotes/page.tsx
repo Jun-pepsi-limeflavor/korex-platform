@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
-import { getUserQuotes } from "@/lib/firebase/firestore";
+import { getUserQuotes } from "@/lib/api/client";
 import { QuoteStatusBadge } from "@/components/dashboard/StatusBadge";
 import { PROCESS_LABELS } from "@/types";
 import type { Quote } from "@/types";
@@ -17,7 +17,7 @@ export default function QuotesPage() {
 
   useEffect(() => {
     if (!userProfile?.id) return;
-    getUserQuotes(userProfile.id).then((q) => {
+    getUserQuotes().then((q) => {
       setQuotes(q);
       setLoading(false);
     });

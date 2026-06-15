@@ -7,9 +7,7 @@ import {
   PlusCircle,
   FileText,
   Package,
-  FolderOpen,
   User,
-  HelpCircle,
   LogOut,
   MessageSquare,
   Mail,
@@ -18,15 +16,15 @@ import { cn } from "@/lib/utils/cn";
 import { useAuth } from "@/context/AuthContext";
 import { logOut } from "@/lib/firebase/auth";
 import { useState, useEffect } from "react";
-import { getManager } from "@/lib/firebase/firestore";
+import { getManager } from "@/lib/api/client";
 import type { Manager } from "@/types";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 const NAV_ITEMS = [
   { icon: LayoutDashboard, label: "Overview", href: "/dashboard" },
   { icon: PlusCircle, label: "New Quote", href: "/dashboard/quote/new" },
   { icon: FileText, label: "My Quotes", href: "/dashboard/quotes" },
   { icon: Package, label: "My Orders", href: "/dashboard/orders" },
-  { icon: FolderOpen, label: "Documents", href: "/dashboard/documents" },
   { icon: User, label: "Profile", href: "/dashboard/profile" },
 ];
 
@@ -51,12 +49,7 @@ export function DashboardSidebar() {
     <aside className="flex h-full w-64 flex-col border-r border-[#E5E7EB] bg-white">
       {/* Logo */}
       <div className="flex h-16 items-center border-b border-[#E5E7EB] px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-sm bg-[#0A1628]">
-            <span className="text-xs font-bold text-white">KX</span>
-          </div>
-          <span className="text-base font-bold text-[#0A1628] tracking-tight">KOREX</span>
-        </Link>
+        <BrandLogo href="/" size="sm" />
       </div>
 
       {/* Navigation */}
@@ -128,14 +121,7 @@ export function DashboardSidebar() {
       </div>
 
       {/* Bottom actions */}
-      <div className="border-t border-[#E5E7EB] px-3 py-3 space-y-1">
-        <Link
-          href="/help"
-          className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-[#6B7280] hover:bg-[#F7F9FC]"
-        >
-          <HelpCircle className="h-4 w-4" />
-          Help Center
-        </Link>
+      <div className="border-t border-[#E5E7EB] px-3 py-3">
         <button
           onClick={handleLogout}
           className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-50"

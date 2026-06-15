@@ -7,6 +7,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { useAuth } from "@/context/AuthContext";
 import { logOut } from "@/lib/firebase/auth";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 const NAV_LINKS = [
   { label: "Capabilities", href: "/capabilities" },
@@ -31,13 +32,7 @@ export function Navbar() {
     <nav className="fixed top-0 z-50 w-full border-b border-[#E5E7EB] bg-white/95 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-[#0A1628]">
-              <span className="text-xs font-bold text-white">KX</span>
-            </div>
-            <span className="text-lg font-bold text-[#0A1628] tracking-tight">KOREX</span>
-          </Link>
+          <BrandLogo href="/" />
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">

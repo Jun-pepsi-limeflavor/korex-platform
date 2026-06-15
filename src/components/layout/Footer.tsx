@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export function Footer() {
   return (
@@ -7,11 +8,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-[#0066FF]">
-                <span className="text-xs font-bold text-white">KX</span>
-              </div>
-              <span className="text-lg font-bold tracking-tight">KOREX</span>
+            <div className="mb-4">
+              <BrandLogo tone="light" />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
               Korean Precision Manufacturing, On Demand. Access South Korea&apos;s elite manufacturing network.
@@ -73,8 +71,8 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <a href="mailto:hello@korex.io" className="hover:text-white transition-colors">
-                  hello@korex.io
+                <a href="mailto:support@formadikor.io" className="hover:text-white transition-colors">
+                  support@formadikor.io
                 </a>
               </li>
               <li>
@@ -94,7 +92,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} KOREX Platform. All rights reserved.
+            © {new Date().getFullYear()} forma di kor. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-xs text-gray-500 hover:text-white">Privacy Policy</Link>

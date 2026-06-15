@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { updateUser } from "@/lib/firebase/firestore";
+import { updateUser } from "@/lib/api/client";
 import { CheckCircle } from "lucide-react";
 
 export default function ProfilePage() {
@@ -21,7 +21,7 @@ export default function ProfilePage() {
   const handleSave = async () => {
     if (!userProfile?.id) return;
     setSaving(true);
-    await updateUser(userProfile.id, form);
+    await updateUser(form);
     await refreshProfile();
     setSaving(false);
     setSaved(true);

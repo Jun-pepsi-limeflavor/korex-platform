@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
-import { getUserOrders } from "@/lib/firebase/firestore";
+import { getUserOrders } from "@/lib/api/client";
 import { OrderStatusBadge } from "@/components/dashboard/StatusBadge";
 import type { Order } from "@/types";
 import { format } from "date-fns";
@@ -16,7 +16,7 @@ export default function OrdersPage() {
 
   useEffect(() => {
     if (!userProfile?.id) return;
-    getUserOrders(userProfile.id).then((o) => {
+    getUserOrders().then((o) => {
       setOrders(o);
       setLoading(false);
     });

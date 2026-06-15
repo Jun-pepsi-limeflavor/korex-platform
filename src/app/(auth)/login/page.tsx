@@ -47,7 +47,7 @@ export default function LoginPage() {
       <div className="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-sm">
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-[#1A1A2E]">Welcome Back</h1>
-          <p className="mt-1 text-sm text-[#6B7280]">Log in to your KOREX account</p>
+          <p className="mt-1 text-sm text-[#6B7280]">Log in to your formadikor account</p>
         </div>
 
         {serverError && (

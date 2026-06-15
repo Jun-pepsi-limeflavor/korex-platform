@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
 
@@ -16,8 +16,15 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["500", "600", "700", "800"],
 });
 
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-cormorant",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "KOREX — Korean Precision Manufacturing, On Demand",
+  title: "forma di kor — Korean Precision Manufacturing, On Demand",
   description:
     "Access South Korea's elite manufacturing network. World-class tolerances, KORUS FTA pricing, and a dedicated account team. CNC Machining, Injection Molding, Sheet Metal, Die Casting, PCB Assembly.",
   keywords: [
@@ -35,7 +42,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${plusJakartaSans.variable} ${cormorantGaramond.variable}`}
+    >
       <body className="min-h-full font-sans">
         <AuthProvider>{children}</AuthProvider>
       </body>

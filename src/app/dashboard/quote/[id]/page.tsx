@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { getQuote, updateQuoteStatus, createOrder } from "@/lib/firebase/firestore";
+import { getQuote, acceptQuote } from "@/lib/api/client";
 import { QuoteStatusBadge } from "@/components/dashboard/StatusBadge";
 import { PROCESS_LABELS } from "@/types";
 import type { Quote } from "@/types";
@@ -33,9 +33,8 @@ export default function QuoteDetailPage({
     if (!quote) return;
     setAccepting(true);
     try {
-      await updateQuoteStatus(quote.id, "accepted");
       const shipDate = addBusinessDays(new Date(), quote.pricing?.leadTimeDays ?? 14);
-      const orderId = await createOrder(quote.id, quote.userId, shipDate);
+      const orderId = await acceptQuote(quote.id, shipDate);
       router.push(`/dashboard/orders/${orderId}`);
     } catch {
       setAccepting(false);

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getOrder } from "@/lib/firebase/firestore";
+import { getOrder } from "@/lib/api/client";
 import { OrderStatusBadge } from "@/components/dashboard/StatusBadge";
 import { ORDER_STATUS_LABELS } from "@/types";
 import type { Order, OrderStatus } from "@/types";
