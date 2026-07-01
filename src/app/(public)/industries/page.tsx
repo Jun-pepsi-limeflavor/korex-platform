@@ -13,56 +13,56 @@ interface Industry {
 const INDUSTRIES: Industry[] = [
   {
     name: "Aerospace & Defense",
-    image: "/5.png",
+    image: "/i_aeorospace.jpg",
     description: "AS9100D certified partner network. Titanium, Inconel, and aluminum structural components. ITAR-compliant supply chain.",
     services: ["CNC Machining", "Sheet Metal", "Die Casting"],
     highlight: "AS9100D Certified",
   },
   {
     name: "Medical Devices",
-    image: "/5.png",
-    description: "ISO 13485 awareness. PEEK, titanium, and stainless steel precision components. IPC Class 3 PCB assembly for FDA-regulated products.",
+    image: "/i_medical.jpg",
+    description: "ISO 13485-aligned quality processes. PEEK, titanium, and stainless steel precision components. IPC Class 3 PCB assembly for FDA-regulated products.",
     services: ["CNC Machining", "Electronics / PCB", "Injection Molding"],
     highlight: "IPC Class 3 · Medical-grade materials",
   },
   {
     name: "Automotive",
-    image: "/5.png",
-    description: "IATF 16949 certified die casting and injection molding. Korean facilities serve Hyundai/Kia Tier-1 supply chains — production-grade from day one.",
+    image: "/i_car.png",
+    description: "IATF 16949 certified die casting and injection molding. Korean facilities serve major automotive Tier-1 supply chains — production-grade from day one.",
     services: ["Die Casting", "Injection Molding", "Sheet Metal"],
     highlight: "IATF 16949 Certified",
   },
   {
     name: "Robotics & Industrial",
-    image: "/5.png",
+    image: "/i_robot.jpg",
     description: "5-axis CNC for complex actuator housings and structural frames. Precision tolerances for servo mounts and linear rail interfaces.",
     services: ["CNC Machining", "Sheet Metal", "Die Casting"],
     highlight: "±0.005mm Standard Tolerance",
   },
   {
     name: "Consumer Electronics",
-    image: "/5.png",
-    description: "Samsung and LG supply chain quality. HPDC aluminum enclosures, injection-molded housings, SMT PCB assembly at scale.",
+    image: "/i_custom.jpg",
+    description: "Consumer electronics-grade quality standards. HPDC aluminum enclosures, injection-molded housings, SMT PCB assembly at scale.",
     services: ["Die Casting", "Injection Molding", "Electronics / PCB"],
     highlight: "Consumer Electronics Grade",
   },
   {
     name: "Hardware Startups",
-    image: "/5.png",
+    image: "/i_Hardware_startup.png",
     description: "Prototype-to-production in one relationship. No sourcing agents required. Account manager guides material selection, DFM, and production ramp.",
     services: ["CNC Machining", "Injection Molding", "Electronics / PCB"],
     highlight: "1-pc MOQ · 3-day quick turn",
   },
   {
     name: "Industrial Equipment",
-    image: "/5.png",
+    image: "/i_Industrial Equipment.jpg",
     description: "Structural weldments, machined housings, stamped brackets. AWS D1.1 and ASME Section IX certified welding. Volume production programs.",
     services: ["Sheet Metal", "CNC Machining", "Die Casting"],
     highlight: "AWS D1.1 Certified Welding",
   },
   {
     name: "Construction & AEC",
-    image: "/5.png",
+    image: "/i_Construction_AEC.jpg",
     description: "Factory-built modular components for multifamily, commercial, and data center projects. 25–35% below US fabrication cost with ±2mm structural tolerance.",
     services: ["Modular Construction Components"],
     highlight: "ASTM A36/A572 · AWS D1.1 Seismic",
@@ -123,7 +123,7 @@ export default function IndustriesPage() {
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="mb-3 text-2xl font-bold text-[#1A1A2E]">Your Industry. Korean Standards.</h2>
           <p className="mb-8 text-[#6B7280]">
-            Korea&apos;s manufacturing sector is the most robotized in the world, serves Samsung, LG, Hyundai, and global Tier-1 OEMs. Every component produced through formadikor benefits from that industrial baseline — whatever your sector.
+            Korea&apos;s manufacturing sector is the most robotized in the world, serving leading global automotive and consumer electronics manufacturers. Every component produced through formadikor benefits from that industrial baseline — whatever your sector.
           </p>
           <Link
             href="/signup"

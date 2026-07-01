@@ -26,7 +26,7 @@ const cormorantGaramond = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "forma di kor — Korean Precision Manufacturing, On Demand",
   description:
-    "Access South Korea's elite manufacturing network. World-class tolerances, KORUS FTA pricing, and a dedicated account team. CNC Machining, Injection Molding, Sheet Metal, Die Casting, PCB Assembly.",
+    "Access South Korea's advanced manufacturing network. World-class tolerances, KORUS FTA pricing, and a dedicated account team. CNC Machining, Injection Molding, Sheet Metal, Die Casting, PCB Assembly.",
   keywords: [
     "Korean manufacturing platform",
     "Korea CNC machining",

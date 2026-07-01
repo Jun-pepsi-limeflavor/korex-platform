@@ -12,7 +12,7 @@ export function Footer() {
               <BrandLogo tone="light" />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Korean Precision Manufacturing, On Demand. Access South Korea&apos;s elite manufacturing network.
+              Korean Precision Manufacturing, On Demand. Access South Korea&apos;s advanced manufacturing network.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {["ISO 9001", "IATF 16949", "AS9100D", "KORUS FTA"].map((cert) => (

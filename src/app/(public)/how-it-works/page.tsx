@@ -128,7 +128,7 @@ export default function HowItWorksPage() {
             href="/signup"
             className="inline-flex items-center gap-2 rounded-sm bg-white px-8 py-3 text-base font-semibold text-[#0066FF] hover:bg-blue-50"
           >
-            Get Instant Quote <ArrowRight className="h-4 w-4" />
+            Get a Quote <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

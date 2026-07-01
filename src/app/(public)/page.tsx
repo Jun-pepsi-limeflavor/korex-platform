@@ -61,7 +61,7 @@ const VALUE_PROPS = [
   },
   {
     title: "Precision That Matches Any Market",
-    body: "Korea is home to Doosan, Hwacheon, and Hyundai WIA — manufacturers whose machines hold tolerances to ±0.0005\". The same precision infrastructure supports our partner network. ±0.005mm is our standard, not our limit.",
+    body: "Korea is home to Doosan, Hwacheon, and Hyundai WIA — manufacturers whose machines hold tolerances to ±0.0005\". The same precision infrastructure supports our partner network. ±0.005mm is our standard; tighter tolerances are available from select partner facilities.",
   },
   {
     title: "World's Most Automated Manufacturing Economy",
@@ -135,14 +135,14 @@ export default function LandingPage() {
               <span className="whitespace-nowrap">Manufacturing, On Demand.</span>
             </h1>
             <p className="mb-8 text-xl leading-relaxed text-gray-100">
-              Access South Korea&apos;s elite manufacturing network — world-class tolerances, KORUS FTA pricing, and a dedicated account team. From prototype to production.
+              Access South Korea&apos;s advanced manufacturing network — world-class tolerances, KORUS FTA pricing, and a dedicated account team. From prototype to production.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/signup"
                 className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#0066FF] px-8 py-3.5 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
               >
-                Get Instant Quote
+                Get a Quote
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
@@ -186,7 +186,7 @@ export default function LandingPage() {
       <section className="bg-[#F7F9FC] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-2 text-center text-3xl font-bold text-[#1A1A2E]">
-            What Can We Make For You?
+            Our Manufacturing Capabilities
           </h2>
           <p className="mb-12 text-center text-[#6B7280]">
             Six manufacturing disciplines. One platform. One account manager.
@@ -225,7 +225,7 @@ export default function LandingPage() {
           <h2 className="mb-2 text-center text-3xl font-bold text-[#1A1A2E]">
             From File Upload to Finished Parts — Three Steps.
           </h2>
-          <p className="mb-12 text-center text-[#6B7280]">No sourcing agents. No mystery markups. No offshore headaches.</p>
+          <p className="mb-12 text-center text-[#6B7280]">No sourcing agents. No hidden markups. Transparent offshore process.</p>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {STEPS.map((step) => (
               <div key={step.num} className="relative">
@@ -245,7 +245,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-2 text-center text-3xl font-bold">Why Source From Korea?</h2>
           <p className="mb-12 text-center text-gray-400">
-            Four structural advantages that no other manufacturing region can match simultaneously.
+            Four structural advantages that make Korea a compelling manufacturing source.
           </p>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {VALUE_PROPS.map((vp) => (
@@ -292,7 +292,7 @@ export default function LandingPage() {
       {/* ── CTA BANNER ───────────────────────────────────────────────────── */}
       <section className="bg-[#0066FF] py-16 text-white">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="mb-3 text-3xl font-bold">Ready to Source From Korea&apos;s Best?</h2>
+          <h2 className="mb-3 text-3xl font-bold">Ready to Source from Korea?</h2>
           <p className="mb-8 text-lg text-blue-100">
             Get a quote in 24 hours. No commitment. No sourcing agents.
           </p>
@@ -300,7 +300,7 @@ export default function LandingPage() {
             href="/signup"
             className="inline-flex items-center gap-2 rounded-sm bg-white px-8 py-3.5 text-base font-semibold text-[#0066FF] hover:bg-blue-50 transition-colors"
           >
-            Get Instant Quote
+            Get a Quote
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-4 text-sm text-blue-200">

@@ -38,7 +38,7 @@ export const SERVICES_DATA: ServiceData[] = [
       { label: "Materials", value: "50+" },
     ],
     description:
-      "Korean CNC shops routinely operate Doosan (±0.0005\" capability), Hwacheon, and Hyundai WIA equipment, achieving tolerances that equal or exceed Japanese and German benchmarks at 30–40% lower cost at current KRW/USD rates.",
+      "Korean CNC shops routinely operate Doosan (±0.0005\" capability), Hwacheon, and Hyundai WIA equipment, achieving tolerances comparable to Japanese and German standards at 30–40% lower cost at current KRW/USD rates.",
     technologies: [
       { name: "CNC Milling", description: "3-axis, 4-axis, 5-axis simultaneous; vertical & horizontal machining centers" },
       { name: "CNC Turning", description: "Live tooling turning centers; Swiss-type CNC for small precision components" },
@@ -47,10 +47,10 @@ export const SERVICES_DATA: ServiceData[] = [
       { name: "Surface Grinding", description: "Precision flatness to Ra 0.2μm surface finish" },
     ],
     specs: [
-      { metric: "Standard Tolerance", value: "±0.01 mm (±0.0004\")", benchmark: "Fictiv standard: ±0.005mm (premium tier)" },
+      { metric: "Standard Tolerance", value: "±0.01 mm (±0.0004\")", benchmark: "Industry platform standard (premium tier)" },
       { metric: "Precision Tolerance", value: "±0.005 mm (±0.0002\")", benchmark: "Equivalent to Japanese tier-1 suppliers" },
       { metric: "Ultra-Precision", value: "±0.002 mm (±0.00008\")", benchmark: "Available from select partner shops" },
-      { metric: "Min Lead Time", value: "3 business days", benchmark: "Fictiv: 1 day (domestic USA premium)" },
+      { metric: "Min Lead Time", value: "3 business days", benchmark: "Domestic US expedited service: 1–2 business days" },
       { metric: "Standard Lead Time", value: "7–14 business days", benchmark: "Industry average Asia: 10–21 days" },
       { metric: "Max Part Size", value: "1,500 × 800 × 600 mm", },
       { metric: "Min Feature Size", value: "0.3 mm" },
@@ -84,7 +84,7 @@ export const SERVICES_DATA: ServiceData[] = [
       { label: "Materials", value: "30+" },
     ],
     description:
-      "Korean mold makers serve Hyundai, Samsung, and LG supply chains — meaning their quality baseline is automotive and consumer electronics grade. Under KORUS FTA, molds and molded parts generally enter the US at 0% duty.",
+      "Korean mold makers supply major automotive and consumer electronics OEM supply chains — meaning their quality baseline is production-grade from day one. Under KORUS FTA, molds and molded parts generally enter the US at 0% duty.",
     technologies: [
       { name: "Prototype Tooling", description: "Aluminum (P20/7075) tooling for 500–5,000 shot validation runs" },
       { name: "Production Tooling", description: "Hardened steel (H13, S7) tooling for 500K–1M+ shot life" },
@@ -128,7 +128,7 @@ export const SERVICES_DATA: ServiceData[] = [
       { label: "Max Sheet Size", value: "3,000×1,500mm" },
     ],
     description:
-      "Korea's sheet metal sector feeds Hyundai/Kia, Samsung Electronics, LG, and major defense contractors. Equipment base (Trumpf, Amada, Bystronic laser; Aida stamping presses) matches European standards.",
+      "Korea's sheet metal sector serves leading automotive, consumer electronics, and defense manufacturers. Equipment base (Trumpf, Amada, Bystronic laser; Aida stamping presses) matches European standards.",
     technologies: [
       { name: "Laser Cutting", description: "Fiber laser 2D cutting up to 25mm steel, 20mm aluminum; 5-axis contour cutting" },
       { name: "CNC Punching", description: "Turret punching; combination punch-laser; micro-perforation" },
@@ -212,7 +212,7 @@ export const SERVICES_DATA: ServiceData[] = [
       { label: "Logistics to West Coast", value: "12–15 Days" },
     ],
     description:
-      "Korea's modular construction market leverages 1,000+ robots per 10,000 workers — the world's highest automation density — now penetrating prefab construction production lines. For North American buyers, Korean factory-built components bypass on-site labor costs for standardized elements.",
+      "Korea's modular construction sector leverages 1,000+ robots per 10,000 workers — the world's highest automation density — increasingly applied to prefabricated construction production lines. For North American buyers, Korean factory-built components bypass on-site labor costs for standardized elements.",
     technologies: [
       { name: "Structural Steel Frames", description: "Precision-welded light gauge steel frames; column-beam subassemblies; CNC-punched stud framing" },
       { name: "Facade & Envelope Systems", description: "Unitized curtain wall panels; preformed metal cladding; composite panel systems (ACM/HPL)" },
@@ -252,7 +252,7 @@ export const SERVICES_DATA: ServiceData[] = [
       { label: "Layer Count", value: "1–20 Layers" },
     ],
     description:
-      "South Korea exported $20.9B of electrical/electronic equipment to the United States in 2024. Korea Circuit Co., ISU Petasys, and the broader Korean EMS ecosystem serve Samsung, LG, Hyundai, and global Tier-1 OEMs.",
+      "South Korea exported $20.9B of electrical/electronic equipment to the United States in 2024. Korea Circuit Co., ISU Petasys, and the broader Korean EMS ecosystem serve global automotive and consumer electronics Tier-1 OEMs.",
     technologies: [
       { name: "PCB Fabrication", description: "1–20 layer rigid PCB; flexible circuits (FPC); rigid-flex; HDI" },
       { name: "PCB Assembly (PCBA)", description: "SMT pick-and-place; through-hole; BGA/QFN/micro-component" },

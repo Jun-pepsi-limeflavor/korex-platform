@@ -101,7 +101,7 @@ export function Navbar() {
                   href="/signup"
                   className="rounded-sm bg-[#0066FF] px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
                 >
-                  Get Instant Quote
+                  Get a Quote
                 </Link>
               </>
             )}
@@ -139,7 +139,7 @@ export function Navbar() {
           ) : (
             <>
               <Link href="/login" className="block text-sm font-medium text-[#6B7280]" onClick={() => setMobileOpen(false)}>Log In</Link>
-              <Link href="/signup" className="block rounded-sm bg-[#0066FF] px-4 py-2 text-center text-sm font-medium text-white" onClick={() => setMobileOpen(false)}>Get Instant Quote</Link>
+              <Link href="/signup" className="block rounded-sm bg-[#0066FF] px-4 py-2 text-center text-sm font-medium text-white" onClick={() => setMobileOpen(false)}>Get a Quote</Link>
             </>
           )}
         </div>
