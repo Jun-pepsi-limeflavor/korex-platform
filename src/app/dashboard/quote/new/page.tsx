@@ -7,21 +7,20 @@ import { createQuote, updateQuote, submitQuote, uploadQuoteFile } from "@/lib/ap
 import { validateFile, formatFileSize } from "@/lib/utils/files";
 import { PROCESS_LABELS } from "@/types";
 import type { ManufacturingProcess, QuoteConfiguration, QualityRequirements } from "@/types";
-import { Upload, X, CheckCircle, ChevronRight, AlertCircle, Settings2, Package, Layers, Box, Building2, Cpu, MessageSquare } from "lucide-react";
+import { Upload, X, CheckCircle, ChevronRight, AlertCircle } from "lucide-react";
 
-import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { format, addBusinessDays } from "date-fns";
 
 const STEPS = ["Select Process", "Upload Files", "Configure", "Review & Submit"];
 
-const PROCESSES: { key: ManufacturingProcess; Icon: LucideIcon; iconColor: string; description: string; leadTime: string }[] = [
-  { key: "cnc_machining", Icon: Settings2, iconColor: "bg-blue-50 text-blue-700", description: "Milling, turning, EDM, 5-axis machining", leadTime: "3–14 business days" },
-  { key: "injection_molding", Icon: Package, iconColor: "bg-violet-50 text-violet-700", description: "Prototype & production tooling, overmolding", leadTime: "3–8 weeks" },
-  { key: "sheet_metal", Icon: Layers, iconColor: "bg-sky-50 text-sky-700", description: "Laser cutting, bending, stamping, welding", leadTime: "5–21 business days" },
-  { key: "die_casting", Icon: Box, iconColor: "bg-orange-50 text-orange-700", description: "HPDC aluminum/zinc, investment casting", leadTime: "4–6 weeks" },
-  { key: "construction", Icon: Building2, iconColor: "bg-stone-100 text-stone-700", description: "Steel frames, facade panels, MEP pods", leadTime: "4–8 weeks" },
-  { key: "electronics", Icon: Cpu, iconColor: "bg-green-50 text-green-700", description: "PCB fabrication, PCBA, box build", leadTime: "3–14 business days" },
+const PROCESSES: { key: ManufacturingProcess; description: string; leadTime: string }[] = [
+  { key: "cnc_machining", description: "Milling, turning, EDM, 5-axis machining", leadTime: "3–14 business days" },
+  { key: "injection_molding", description: "Prototype & production tooling, overmolding", leadTime: "3–8 weeks" },
+  { key: "sheet_metal", description: "Laser cutting, bending, stamping, welding", leadTime: "5–21 business days" },
+  { key: "die_casting", description: "HPDC aluminum/zinc, investment casting", leadTime: "4–6 weeks" },
+  { key: "construction", description: "Steel frames, facade panels, MEP pods", leadTime: "4–8 weeks" },
+  { key: "electronics", description: "PCB fabrication, PCBA, box build", leadTime: "3–14 business days" },
 ];
 
 const MATERIALS: Record<ManufacturingProcess, string[]> = {
@@ -180,8 +179,8 @@ export default function NewQuotePage() {
   if (submitted && quoteId) {
     return (
       <div className="flex min-h-full flex-col items-center justify-center p-8">
-        <div className="w-full max-w-lg rounded-xl border border-[#E5E7EB] bg-white p-8 text-center shadow-sm">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+        <div className="w-full max-w-lg rounded-sm border border-[#E5E7EB] bg-white p-8 text-center shadow-sm">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-sm bg-green-100">
             <CheckCircle className="h-7 w-7 text-green-600" />
           </div>
           <h1 className="mb-2 text-2xl font-bold text-[#1A1A2E]">Quote Submitted Successfully.</h1>
@@ -192,7 +191,7 @@ export default function NewQuotePage() {
           <p className="mb-6 text-sm text-[#6B7280]">
             You will receive a notification at <strong>{userProfile?.email}</strong> when your quote is ready.
           </p>
-          <div className="mb-6 rounded-lg bg-[#F7F9FC] px-4 py-3">
+          <div className="mb-6 rounded-sm bg-[#F7F9FC] px-4 py-3">
             <p className="text-xs text-[#6B7280]">Quote Reference</p>
             <p className="spec-value text-lg font-bold tracking-widest text-[#1A1A2E]">
               Q-{quoteId.slice(-8).toUpperCase()}
@@ -201,13 +200,13 @@ export default function NewQuotePage() {
           <div className="flex gap-3">
             <button
               onClick={() => router.push("/dashboard/quotes")}
-              className="flex-1 rounded-md border border-[#E5E7EB] px-4 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]"
+              className="flex-1 rounded-sm border border-[#E5E7EB] px-4 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]"
             >
               View My Quotes
             </button>
             <button
               onClick={() => { setSubmitted(false); setStep(0); setSelectedProcess(null); setUploadedFiles([]); setConfig(null); setQuoteId(null); }}
-              className="flex-1 rounded-md bg-[#0066FF] px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700"
+              className="flex-1 rounded-sm bg-[#0066FF] px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700"
             >
               Start Another Quote
             </button>
@@ -226,7 +225,7 @@ export default function NewQuotePage() {
         {STEPS.map((label, i) => (
           <div key={label} className="flex items-center gap-2">
             <div className={cn(
-              "flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold",
+              "flex h-7 w-7 items-center justify-center rounded-sm text-xs font-bold",
               i < step ? "bg-green-500 text-white" :
               i === step ? "bg-[#0066FF] text-white" :
               "bg-[#E5E7EB] text-[#6B7280]"
@@ -242,7 +241,7 @@ export default function NewQuotePage() {
       </div>
 
       {error && (
-        <div className="mb-4 flex items-start gap-2 rounded-md bg-red-50 border border-red-200 p-3">
+        <div className="mb-4 flex items-start gap-2 rounded-sm bg-red-50 border border-red-200 p-3">
           <AlertCircle className="h-4 w-4 shrink-0 text-red-500 mt-0.5" />
           <p className="text-sm text-red-700">{error}</p>
         </div>
@@ -253,35 +252,26 @@ export default function NewQuotePage() {
         <div>
           <h2 className="mb-6 text-lg font-semibold text-[#1A1A2E]">Select Manufacturing Process</h2>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {PROCESSES.map((p) => {
-              const Icon = p.Icon;
-              return (
+            {PROCESSES.map((p) => (
                 <button
                   key={p.key}
                   onClick={() => handleProcessSelect(p.key)}
                   className={cn(
-                    "rounded-xl border p-5 text-left transition-all",
+                    "rounded-sm border p-5 text-left transition-all",
                     selectedProcess === p.key
                       ? "border-[#0066FF] bg-[#EEF4FF] shadow-sm"
                       : "border-[#E5E7EB] bg-white hover:border-[#0066FF]/30"
                   )}
                 >
-                  <div className={`mb-3 inline-flex h-8 w-8 items-center justify-center rounded-lg ${p.iconColor}`}>
-                    <Icon className="h-4 w-4" />
-                  </div>
                   <h3 className="font-semibold text-[#1A1A2E]">{PROCESS_LABELS[p.key]}</h3>
                   <p className="mt-1 text-xs text-[#6B7280]">{p.description}</p>
                   <p className="mt-2 text-xs font-medium text-[#0066FF]">Lead time: {p.leadTime}</p>
                 </button>
-              );
-            })}
+              ))}
             <button
               onClick={() => handleProcessSelect("cnc_machining")}
-              className="rounded-xl border border-dashed border-[#E5E7EB] p-5 text-left hover:border-[#0066FF]/30 transition-all"
+              className="rounded-sm border border-dashed border-[#E5E7EB] p-5 text-left hover:border-[#0066FF]/30 transition-all"
             >
-              <div className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gray-100 text-gray-500">
-                <MessageSquare className="h-4 w-4" />
-              </div>
               <h3 className="font-semibold text-[#1A1A2E]">Not Sure?</h3>
               <p className="mt-1 text-xs text-[#6B7280]">Let your account manager advise on the best process</p>
             </button>
@@ -290,7 +280,7 @@ export default function NewQuotePage() {
             <button
               onClick={() => setStep(1)}
               disabled={!selectedProcess}
-              className="rounded-md bg-[#0066FF] px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-40"
+              className="rounded-sm bg-[#0066FF] px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-40"
             >
               Continue →
             </button>
@@ -306,7 +296,7 @@ export default function NewQuotePage() {
 
           <div
             className={cn(
-              "mb-4 rounded-xl border-2 border-dashed p-10 text-center transition-colors",
+              "mb-4 rounded-sm border-2 border-dashed p-10 text-center transition-colors",
               dragging ? "border-[#0066FF] bg-[#EEF4FF]" : "border-[#E5E7EB] bg-[#F7F9FC]"
             )}
             onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
@@ -332,7 +322,7 @@ export default function NewQuotePage() {
           {uploadedFiles.length > 0 && (
             <div className="mb-4 space-y-2">
               {uploadedFiles.map((uf, i) => (
-                <div key={i} className="flex items-center gap-3 rounded-lg border border-[#E5E7EB] bg-white p-3">
+                <div key={i} className="flex items-center gap-3 rounded-sm border border-[#E5E7EB] bg-white p-3">
                   <div className="flex-1 min-w-0">
                     <p className="truncate text-sm font-medium text-[#1A1A2E]">{uf.fileName}</p>
                     <p className="text-xs text-[#6B7280]">{formatFileSize(uf.fileSize)}</p>
@@ -356,7 +346,7 @@ export default function NewQuotePage() {
             <textarea
               rows={3}
               placeholder="Describe your part or assembly requirements..."
-              className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+              className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
               onChange={(e) => {
                 if (config) setConfig({ ...config, notes: e.target.value });
               }}
@@ -364,8 +354,8 @@ export default function NewQuotePage() {
           </div>
 
           <div className="flex justify-between">
-            <button onClick={() => setStep(0)} className="rounded-md border border-[#E5E7EB] px-6 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]">← Back</button>
-            <button onClick={() => setStep(2)} className="rounded-md bg-[#0066FF] px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700">Continue →</button>
+            <button onClick={() => setStep(0)} className="rounded-sm border border-[#E5E7EB] px-6 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]">← Back</button>
+            <button onClick={() => setStep(2)} className="rounded-sm bg-[#0066FF] px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700">Continue →</button>
           </div>
         </div>
       )}
@@ -381,7 +371,7 @@ export default function NewQuotePage() {
                 value={config.partName}
                 onChange={(e) => setConfig({ ...config, partName: e.target.value })}
                 placeholder="e.g. Housing Cover v3, Bracket Assembly"
-                className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
               />
             </div>
 
@@ -391,7 +381,7 @@ export default function NewQuotePage() {
                 <select
                   value={config.material}
                   onChange={(e) => setConfig({ ...config, material: e.target.value })}
-                  className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                 >
                   {MATERIALS[selectedProcess].map((m) => (
                     <option key={m}>{m}</option>
@@ -404,7 +394,7 @@ export default function NewQuotePage() {
                 <select
                   value={config.finish}
                   onChange={(e) => setConfig({ ...config, finish: e.target.value })}
-                  className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                 >
                   {FINISHES[selectedProcess].map((f) => (
                     <option key={f}>{f}</option>
@@ -419,7 +409,7 @@ export default function NewQuotePage() {
                 <select
                   value={config.toleranceClass}
                   onChange={(e) => setConfig({ ...config, toleranceClass: e.target.value as "standard" | "precision" | "custom" })}
-                  className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                 >
                   <option value="standard">Standard ±0.01mm</option>
                   <option value="precision">Precision ±0.005mm</option>
@@ -433,7 +423,7 @@ export default function NewQuotePage() {
                   min={1}
                   value={config.quantity}
                   onChange={(e) => setConfig({ ...config, quantity: parseInt(e.target.value) || 1 })}
-                  className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                 />
               </div>
             </div>
@@ -445,7 +435,7 @@ export default function NewQuotePage() {
                 value={config.targetDate}
                 min={format(addBusinessDays(new Date(), 3), "yyyy-MM-dd")}
                 onChange={(e) => setConfig({ ...config, targetDate: e.target.value })}
-                className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
               />
             </div>
 
@@ -456,7 +446,7 @@ export default function NewQuotePage() {
                 value={config.notes}
                 onChange={(e) => setConfig({ ...config, notes: e.target.value })}
                 placeholder="Thread callouts, surface finish specs, critical dimensions, reference standards..."
-                className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
               />
             </div>
 
@@ -488,11 +478,11 @@ export default function NewQuotePage() {
           </div>
 
           <div className="mt-8 flex justify-between">
-            <button onClick={() => setStep(1)} className="rounded-md border border-[#E5E7EB] px-6 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]">← Back</button>
+            <button onClick={() => setStep(1)} className="rounded-sm border border-[#E5E7EB] px-6 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]">← Back</button>
             <button
               onClick={() => setStep(3)}
               disabled={!config.partName}
-              className="rounded-md bg-[#0066FF] px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-40"
+              className="rounded-sm bg-[#0066FF] px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-40"
             >
               Review & Submit →
             </button>
@@ -505,7 +495,7 @@ export default function NewQuotePage() {
         <div>
           <h2 className="mb-6 text-lg font-semibold text-[#1A1A2E]">Review & Submit</h2>
           <div className="max-w-2xl space-y-4">
-            <div className="rounded-xl border border-[#E5E7EB] bg-white p-5">
+            <div className="rounded-sm border border-[#E5E7EB] bg-white p-5">
               <h3 className="mb-3 font-medium text-[#1A1A2E]">Quote Summary</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -543,7 +533,7 @@ export default function NewQuotePage() {
               </dl>
             </div>
 
-            <div className="rounded-xl border border-[#E5E7EB] bg-white p-5">
+            <div className="rounded-sm border border-[#E5E7EB] bg-white p-5">
               <h3 className="mb-3 font-medium text-[#1A1A2E]">Contact Information</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -561,7 +551,7 @@ export default function NewQuotePage() {
               </dl>
             </div>
 
-            <div className="rounded-lg bg-[#EEF4FF] border border-blue-100 p-4 text-sm text-[#1A1A2E]">
+            <div className="rounded-sm bg-[#EEF4FF] border border-blue-100 p-4 text-sm text-[#1A1A2E]">
               <p>
                 By submitting, your account manager will review your specifications and respond with a fixed price quote and guaranteed lead time within{" "}
                 <strong>24 business hours.</strong>
@@ -569,11 +559,11 @@ export default function NewQuotePage() {
             </div>
 
             <div className="flex justify-between">
-              <button onClick={() => setStep(2)} className="rounded-md border border-[#E5E7EB] px-6 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]">← Back</button>
+              <button onClick={() => setStep(2)} className="rounded-sm border border-[#E5E7EB] px-6 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]">← Back</button>
               <button
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="rounded-md bg-[#0066FF] px-8 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
+                className="rounded-sm bg-[#0066FF] px-8 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
               >
                 {submitting ? "Submitting..." : "Submit for Quote"}
               </button>

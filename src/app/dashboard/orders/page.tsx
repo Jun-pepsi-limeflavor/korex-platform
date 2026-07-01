@@ -26,7 +26,7 @@ export default function OrdersPage() {
     <div className="p-8">
       <h1 className="mb-6 text-2xl font-bold text-[#1A1A2E]">My Orders</h1>
 
-      <div className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden">
+      <div className="rounded-sm border border-[#E5E7EB] bg-white overflow-hidden">
         {loading ? (
           <div className="py-12 text-center text-sm text-[#6B7280]">Loading orders...</div>
         ) : orders.length === 0 ? (

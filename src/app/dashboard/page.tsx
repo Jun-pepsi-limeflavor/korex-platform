@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { PlusCircle, Upload, Phone, FileText, Package } from "lucide-react";
+import { FileText, Package } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { getUserQuotes, getUserOrders } from "@/lib/api/client";
 import { QuoteStatusBadge, OrderStatusBadge } from "@/components/dashboard/StatusBadge";
@@ -32,7 +32,7 @@ export default function DashboardPage() {
   return (
     <div className="p-8">
       {/* Welcome banner */}
-      <div className="mb-8 rounded-xl bg-gradient-to-r from-[#0A1628] to-[#0D2547] p-6 text-white">
+      <div className="mb-8 rounded-sm bg-gradient-to-r from-[#0A1628] to-[#0D2547] p-6 text-white">
         <h1 className="text-2xl font-bold">
           Welcome back, {userProfile?.firstName ?? "there"}.
         </h1>
@@ -45,47 +45,32 @@ export default function DashboardPage() {
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <Link
           href="/dashboard/quote/new"
-          className="flex items-center gap-3 rounded-xl border border-[#E5E7EB] bg-white p-5 hover:border-[#0066FF]/30 hover:shadow-sm transition-all"
+          className="rounded-sm border border-[#E5E7EB] bg-white p-5 hover:border-[#0066FF]/30 hover:shadow-sm transition-all border-l-2 border-l-[#0066FF]"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF4FF]">
-            <PlusCircle className="h-5 w-5 text-[#0066FF]" />
-          </div>
-          <div>
-            <p className="font-semibold text-[#1A1A2E]">Start New Quote</p>
-            <p className="text-xs text-[#6B7280]">Upload CAD file or drawing</p>
-          </div>
+          <p className="font-semibold text-[#1A1A2E]">Start New Quote</p>
+          <p className="text-xs text-[#6B7280]">Upload CAD file or drawing</p>
         </Link>
 
         <Link
           href="/dashboard/quote/new"
-          className="flex items-center gap-3 rounded-xl border border-[#E5E7EB] bg-white p-5 hover:border-[#0066FF]/30 hover:shadow-sm transition-all"
+          className="rounded-sm border border-[#E5E7EB] bg-white p-5 hover:border-[#0066FF]/30 hover:shadow-sm transition-all border-l-2 border-l-green-600"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F0FFF4]">
-            <Upload className="h-5 w-5 text-green-600" />
-          </div>
-          <div>
-            <p className="font-semibold text-[#1A1A2E]">Upload Drawing</p>
-            <p className="text-xs text-[#6B7280]">PDF, DXF, DWG supported</p>
-          </div>
+          <p className="font-semibold text-[#1A1A2E]">Upload Drawing</p>
+          <p className="text-xs text-[#6B7280]">PDF, DXF, DWG supported</p>
         </Link>
 
         <Link
           href="/contact"
-          className="flex items-center gap-3 rounded-xl border border-[#E5E7EB] bg-white p-5 hover:border-[#0066FF]/30 hover:shadow-sm transition-all"
+          className="rounded-sm border border-[#E5E7EB] bg-white p-5 hover:border-[#0066FF]/30 hover:shadow-sm transition-all border-l-2 border-l-amber-500"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50">
-            <Phone className="h-5 w-5 text-amber-600" />
-          </div>
-          <div>
-            <p className="font-semibold text-[#1A1A2E]">Talk to Your Manager</p>
-            <p className="text-xs text-[#6B7280]">Direct line to your account team</p>
-          </div>
+          <p className="font-semibold text-[#1A1A2E]">Talk to Your Manager</p>
+          <p className="text-xs text-[#6B7280]">Direct line to your account team</p>
         </Link>
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {/* Active Quotes */}
-        <div className="rounded-xl border border-[#E5E7EB] bg-white">
+        <div className="rounded-sm border border-[#E5E7EB] bg-white">
           <div className="flex items-center justify-between border-b border-[#E5E7EB] px-5 py-4">
             <div className="flex items-center gap-2">
               <FileText className="h-4 w-4 text-[#6B7280]" />
@@ -128,7 +113,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Recent Orders */}
-        <div className="rounded-xl border border-[#E5E7EB] bg-white">
+        <div className="rounded-sm border border-[#E5E7EB] bg-white">
           <div className="flex items-center justify-between border-b border-[#E5E7EB] px-5 py-4">
             <div className="flex items-center gap-2">
               <Package className="h-4 w-4 text-[#6B7280]" />

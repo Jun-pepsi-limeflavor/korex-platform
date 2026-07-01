@@ -38,7 +38,7 @@ export default function ContactPage() {
   if (submitted) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center p-8 text-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 mb-4">
+        <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-green-100 mb-4">
           <CheckCircle className="h-7 w-7 text-green-600" />
         </div>
         <h2 className="mb-2 text-2xl font-bold text-[#1A1A2E]">Message Sent.</h2>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#F7F9FC] p-5">
+              <div className="rounded-sm bg-[#F7F9FC] p-5">
                 <h3 className="mb-3 font-semibold text-[#1A1A2E]">What Happens Next?</h3>
                 <ol className="space-y-2 text-sm text-[#6B7280]">
                   <li className="flex gap-2"><span className="font-bold text-[#0066FF]">1.</span> Our team reviews your inquiry within 4 hours</li>
@@ -103,43 +103,43 @@ export default function ContactPage() {
 
             {/* Right: form */}
             <div className="lg:col-span-3">
-              <form onSubmit={handleSubmit(onSubmit)} className="rounded-xl border border-[#E5E7EB] bg-white p-6 shadow-sm space-y-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="rounded-sm border border-[#E5E7EB] bg-white p-6 shadow-sm space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">First Name *</label>
-                    <input {...register("firstName")} className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.firstName ? "border-red-400" : "border-[#E5E7EB]")} />
+                    <input {...register("firstName")} className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.firstName ? "border-red-400" : "border-[#E5E7EB]")} />
                   </div>
                   <div>
                     <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Last Name *</label>
-                    <input {...register("lastName")} className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.lastName ? "border-red-400" : "border-[#E5E7EB]")} />
+                    <input {...register("lastName")} className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.lastName ? "border-red-400" : "border-[#E5E7EB]")} />
                   </div>
                 </div>
 
                 <div>
                   <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Company *</label>
-                  <input {...register("company")} className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.company ? "border-red-400" : "border-[#E5E7EB]")} />
+                  <input {...register("company")} className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.company ? "border-red-400" : "border-[#E5E7EB]")} />
                 </div>
 
                 <div>
                   <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Company Email *</label>
-                  <input {...register("email")} type="email" className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.email ? "border-red-400" : "border-[#E5E7EB]")} />
+                  <input {...register("email")} type="email" className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.email ? "border-red-400" : "border-[#E5E7EB]")} />
                   {errors.email && <p className="mt-0.5 text-xs text-red-500">{errors.email.message}</p>}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Phone</label>
-                    <input {...register("phone")} type="tel" className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]" />
+                    <input {...register("phone")} type="tel" className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]" />
                   </div>
                   <div>
                     <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Country / Region</label>
-                    <input {...register("country")} className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]" />
+                    <input {...register("country")} className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]" />
                   </div>
                 </div>
 
                 <div>
                   <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Manufacturing Process of Interest *</label>
-                  <select {...register("process")} className={cn("w-full rounded-md border px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.process ? "border-red-400" : "border-[#E5E7EB]")}>
+                  <select {...register("process")} className={cn("w-full rounded-sm border px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.process ? "border-red-400" : "border-[#E5E7EB]")}>
                     <option value="">Select process...</option>
                     <option>CNC Machining</option>
                     <option>Injection Molding</option>
@@ -153,7 +153,7 @@ export default function ContactPage() {
 
                 <div>
                   <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Estimated Annual Volume *</label>
-                  <select {...register("volume")} className={cn("w-full rounded-md border px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.volume ? "border-red-400" : "border-[#E5E7EB]")}>
+                  <select {...register("volume")} className={cn("w-full rounded-sm border px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.volume ? "border-red-400" : "border-[#E5E7EB]")}>
                     <option value="">Select volume...</option>
                     <option>Prototype only</option>
                     <option>Under $50K</option>
@@ -169,13 +169,13 @@ export default function ContactPage() {
                     {...register("description")}
                     rows={3}
                     placeholder="Brief description of your project, parts, or requirements..."
-                    className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                    className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                   />
                 </div>
 
                 <div>
                   <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">How did you hear about us?</label>
-                  <select {...register("hearAboutUs")} className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]">
+                  <select {...register("hearAboutUs")} className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]">
                     <option value="">Select...</option>
                     <option>LinkedIn</option>
                     <option>Google Search</option>
@@ -187,7 +187,7 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-md bg-[#0066FF] py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+                  className="w-full rounded-sm bg-[#0066FF] py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
                 >
                   Send Message
                 </button>

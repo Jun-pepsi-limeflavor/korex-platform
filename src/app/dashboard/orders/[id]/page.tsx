@@ -59,7 +59,7 @@ export default function OrderDetailPage({
       </p>
 
       {/* Status Timeline */}
-      <div className="mb-8 rounded-xl border border-[#E5E7EB] bg-white p-6">
+      <div className="mb-8 rounded-sm border border-[#E5E7EB] bg-white p-6">
         <h2 className="mb-6 font-semibold text-[#1A1A2E]">Production Status</h2>
         <div className="relative flex items-start justify-between">
           {/* Track line */}
@@ -99,7 +99,7 @@ export default function OrderDetailPage({
         <div className="space-y-6 lg:col-span-2">
 
           {/* Production Updates Log */}
-          <div className="rounded-xl border border-[#E5E7EB] bg-white p-5">
+          <div className="rounded-sm border border-[#E5E7EB] bg-white p-5">
             <h2 className="mb-4 font-semibold text-[#1A1A2E]">Production Updates</h2>
             {order.statusHistory.length === 0 ? (
               <p className="text-sm text-[#6B7280]">No updates yet.</p>
@@ -132,11 +132,11 @@ export default function OrderDetailPage({
 
           {/* Documents */}
           {order.documents.length > 0 && (
-            <div className="rounded-xl border border-[#E5E7EB] bg-white p-5">
+            <div className="rounded-sm border border-[#E5E7EB] bg-white p-5">
               <h2 className="mb-3 font-semibold text-[#1A1A2E]">Documents</h2>
               <div className="space-y-2">
                 {order.documents.map((doc, i) => (
-                  <div key={i} className="flex items-center justify-between rounded-md bg-[#F7F9FC] px-3 py-2.5">
+                  <div key={i} className="flex items-center justify-between rounded-sm bg-[#F7F9FC] px-3 py-2.5">
                     <div>
                       <p className="text-sm font-medium text-[#1A1A2E]">{doc.fileName}</p>
                       <p className="text-xs text-[#6B7280] capitalize">{doc.type.replace(/_/g, " ")}</p>
@@ -160,7 +160,7 @@ export default function OrderDetailPage({
         <div className="space-y-4 lg:col-span-1">
           {/* Tracking */}
           {order.tracking ? (
-            <div className="rounded-xl border border-[#E5E7EB] bg-white p-5">
+            <div className="rounded-sm border border-[#E5E7EB] bg-white p-5">
               <h2 className="mb-3 font-semibold text-[#1A1A2E]">Shipment Tracking</h2>
               <p className="text-sm text-[#6B7280]">
                 {order.tracking.carrier} · {order.tracking.trackingNumber}
@@ -175,7 +175,7 @@ export default function OrderDetailPage({
               </a>
             </div>
           ) : (
-            <div className="rounded-xl border border-[#E5E7EB] bg-[#F7F9FC] p-5 text-center">
+            <div className="rounded-sm border border-[#E5E7EB] bg-[#F7F9FC] p-5 text-center">
               <p className="text-sm text-[#6B7280]">Tracking info will appear once shipped.</p>
             </div>
           )}
@@ -183,7 +183,7 @@ export default function OrderDetailPage({
           {/* Reorder */}
           <Link
             href={`/dashboard/quote/new`}
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#E5E7EB] bg-white px-4 py-3.5 text-sm font-medium text-[#1A1A2E] hover:border-[#0066FF]/30 hover:shadow-sm transition-all"
+            className="flex w-full items-center justify-center gap-2 rounded-sm border border-[#E5E7EB] bg-white px-4 py-3.5 text-sm font-medium text-[#1A1A2E] hover:border-[#0066FF]/30 hover:shadow-sm transition-all"
           >
             <RefreshCw className="h-4 w-4" />
             Reorder This Part

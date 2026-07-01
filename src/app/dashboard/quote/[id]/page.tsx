@@ -75,7 +75,7 @@ export default function QuoteDetailPage({
         <div className="space-y-6 lg:col-span-2">
 
           {/* Specifications */}
-          <div className="rounded-xl border border-[#E5E7EB] bg-white p-5">
+          <div className="rounded-sm border border-[#E5E7EB] bg-white p-5">
             <h2 className="mb-4 font-semibold text-[#1A1A2E]">Specifications</h2>
             {quote.configurations.map((cfg, i) => (
               <div key={i} className="space-y-2 text-sm">
@@ -115,10 +115,10 @@ export default function QuoteDetailPage({
               <div className="mt-4 border-t border-[#E5E7EB] pt-4">
                 <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[#6B7280]">Quality Documentation Requested</p>
                 <div className="flex flex-wrap gap-2">
-                  {quote.qualityRequirements.fai && <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs text-blue-700">FAI Report</span>}
-                  {quote.qualityRequirements.mtr && <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs text-blue-700">Material Test Report</span>}
-                  {quote.qualityRequirements.coc && <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs text-blue-700">Certificate of Conformance</span>}
-                  {quote.qualityRequirements.ppap && <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs text-blue-700">PPAP</span>}
+                  {quote.qualityRequirements.fai && <span className="rounded-sm bg-blue-50 px-2.5 py-0.5 text-xs text-blue-700">FAI Report</span>}
+                  {quote.qualityRequirements.mtr && <span className="rounded-sm bg-blue-50 px-2.5 py-0.5 text-xs text-blue-700">Material Test Report</span>}
+                  {quote.qualityRequirements.coc && <span className="rounded-sm bg-blue-50 px-2.5 py-0.5 text-xs text-blue-700">Certificate of Conformance</span>}
+                  {quote.qualityRequirements.ppap && <span className="rounded-sm bg-blue-50 px-2.5 py-0.5 text-xs text-blue-700">PPAP</span>}
                 </div>
               </div>
             )}
@@ -126,11 +126,11 @@ export default function QuoteDetailPage({
 
           {/* Uploaded files */}
           {quote.files.length > 0 && (
-            <div className="rounded-xl border border-[#E5E7EB] bg-white p-5">
+            <div className="rounded-sm border border-[#E5E7EB] bg-white p-5">
               <h2 className="mb-3 font-semibold text-[#1A1A2E]">Uploaded Files</h2>
               <div className="space-y-2">
                 {quote.files.map((f, i) => (
-                  <div key={i} className="flex items-center justify-between rounded-md bg-[#F7F9FC] px-3 py-2">
+                  <div key={i} className="flex items-center justify-between rounded-sm bg-[#F7F9FC] px-3 py-2">
                     <span className="text-sm text-[#1A1A2E]">{f.fileName}</span>
                     <a
                       href={f.viewUrl}
@@ -148,7 +148,7 @@ export default function QuoteDetailPage({
 
           {/* Manager notes */}
           {quote.managerNotes && (
-            <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+            <div className="rounded-sm border border-amber-200 bg-amber-50 p-5">
               <h2 className="mb-2 font-semibold text-amber-900">DFM Feedback from Account Manager</h2>
               <p className="text-sm text-amber-800 leading-relaxed whitespace-pre-wrap">{quote.managerNotes}</p>
             </div>
@@ -157,7 +157,7 @@ export default function QuoteDetailPage({
 
         {/* Pricing panel */}
         <div className="lg:col-span-1">
-          <div className="sticky top-8 rounded-xl border border-[#E5E7EB] bg-white p-5 shadow-sm">
+          <div className="sticky top-8 rounded-sm border border-[#E5E7EB] bg-white p-5 shadow-sm">
             {quote.status === "quoted" && quote.pricing ? (
               <>
                 <h2 className="mb-4 font-semibold text-[#1A1A2E]">Quote Pricing</h2>
@@ -189,12 +189,12 @@ export default function QuoteDetailPage({
                 <button
                   onClick={handleAccept}
                   disabled={accepting}
-                  className="mb-2 flex w-full items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-green-700 disabled:opacity-50"
+                  className="mb-2 flex w-full items-center justify-center gap-2 rounded-sm bg-green-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-green-700 disabled:opacity-50"
                 >
                   <CheckCircle className="h-4 w-4" />
                   {accepting ? "Confirming..." : "Accept Quote → Convert to Order"}
                 </button>
-                <button className="flex w-full items-center justify-center gap-2 rounded-md border border-[#E5E7EB] px-4 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]">
+                <button className="flex w-full items-center justify-center gap-2 rounded-sm border border-[#E5E7EB] px-4 py-2.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]">
                   <RefreshCw className="h-4 w-4" />
                   Request Revision
                 </button>
@@ -204,7 +204,7 @@ export default function QuoteDetailPage({
               </>
             ) : (
               <div className="text-center py-4">
-                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#EEF4FF]">
+                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-sm bg-[#EEF4FF]">
                   <QuoteStatusBadge status={quote.status} />
                 </div>
                 <p className="text-sm text-[#6B7280]">

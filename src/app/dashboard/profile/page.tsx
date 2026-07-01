@@ -33,7 +33,7 @@ export default function ProfilePage() {
       <h1 className="mb-6 text-2xl font-bold text-[#1A1A2E]">Profile & Settings</h1>
 
       <div className="max-w-xl space-y-6">
-        <div className="rounded-xl border border-[#E5E7EB] bg-white p-6">
+        <div className="rounded-sm border border-[#E5E7EB] bg-white p-6">
           <h2 className="mb-4 font-semibold text-[#1A1A2E]">Account Information</h2>
 
           <div className="space-y-4">
@@ -43,7 +43,7 @@ export default function ProfilePage() {
                 <input
                   value={form.firstName}
                   onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-                  className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                 />
               </div>
               <div>
@@ -51,7 +51,7 @@ export default function ProfilePage() {
                 <input
                   value={form.lastName}
                   onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-                  className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                 />
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function ProfilePage() {
               <input
                 value={userProfile?.email ?? ""}
                 disabled
-                className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm bg-[#F7F9FC] text-[#6B7280]"
+                className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm bg-[#F7F9FC] text-[#6B7280]"
               />
               <p className="mt-0.5 text-xs text-[#6B7280]">Email cannot be changed</p>
             </div>
@@ -71,7 +71,7 @@ export default function ProfilePage() {
               <input
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
-                className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
               />
             </div>
 
@@ -81,7 +81,7 @@ export default function ProfilePage() {
                 <input
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                 />
               </div>
               <div>
@@ -89,7 +89,7 @@ export default function ProfilePage() {
                 <input
                   value={form.country}
                   onChange={(e) => setForm({ ...form, country: e.target.value })}
-                  className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
                 />
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function ProfilePage() {
               <input
                 value={form.jobTitle}
                 onChange={(e) => setForm({ ...form, jobTitle: e.target.value })}
-                className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
               />
             </div>
           </div>
@@ -107,13 +107,13 @@ export default function ProfilePage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="mt-5 flex items-center gap-2 rounded-md bg-[#0066FF] px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
+            className="mt-5 flex items-center gap-2 rounded-sm bg-[#0066FF] px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
           >
             {saved ? <><CheckCircle className="h-4 w-4" /> Saved</> : saving ? "Saving..." : "Save Changes"}
           </button>
         </div>
 
-        <div className="rounded-xl border border-[#E5E7EB] bg-white p-6">
+        <div className="rounded-sm border border-[#E5E7EB] bg-white p-6">
           <h2 className="mb-2 font-semibold text-[#1A1A2E]">Account Details</h2>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between">

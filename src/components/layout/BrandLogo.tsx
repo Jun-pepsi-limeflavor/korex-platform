@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
 
@@ -8,11 +9,16 @@ type BrandLogoProps = {
   className?: string;
 };
 
-const sizeClasses = {
-  sm: "text-base",
-  md: "text-lg",
-  lg: "text-xl",
-};
+const sizeHeights = {
+  sm: 28,
+  md: 32,
+  lg: 40,
+} as const;
+
+const logoSources = {
+  dark: "/logo.png",
+  light: "/logo_white.png",
+} as const;
 
 export function BrandLogo({
   href,
@@ -20,26 +26,27 @@ export function BrandLogo({
   tone = "dark",
   className,
 }: BrandLogoProps) {
-  const text = (
-    <span
-      className={cn(
-        "font-serif font-normal tracking-wide font-bold",
-        sizeClasses[size],
-        tone === "light" ? "text-white" : "text-[#0A1628]",
-        className
-      )}
-    >
-      Forma Di Kor
-    </span>
+  const height = sizeHeights[size];
+
+  const logo = (
+    <Image
+      src={logoSources[tone]}
+      alt="Forma Di Kor"
+      width={Math.round(height * 3.2)}
+      height={height}
+      className={cn("h-auto w-auto object-contain", className)}
+      style={{ height }}
+      priority={size === "lg"}
+    />
   );
 
   if (href) {
     return (
       <Link href={href} className="inline-flex items-center">
-        {text}
+        {logo}
       </Link>
     );
   }
 
-  return <div className="inline-flex items-center">{text}</div>;
+  return <div className="inline-flex items-center">{logo}</div>;
 }

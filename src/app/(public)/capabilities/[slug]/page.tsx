@@ -33,7 +33,7 @@ export default async function ServicePage({
           {/* Hero stats bar */}
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {svc.heroStats.map((stat) => (
-              <div key={stat.label} className="rounded-lg bg-white/5 border border-white/10 p-4">
+              <div key={stat.label} className="rounded-sm bg-white/5 border border-white/10 p-4">
                 <div className="spec-value text-xl font-bold text-[#0066FF]">{stat.value}</div>
                 <div className="text-xs text-gray-400 mt-0.5">{stat.label}</div>
               </div>
@@ -50,7 +50,7 @@ export default async function ServicePage({
             {/* What We Offer */}
             <section>
               <h2 className="mb-6 text-2xl font-bold text-[#1A1A2E]">What We Offer</h2>
-              <div className="overflow-hidden rounded-xl border border-[#E5E7EB]">
+              <div className="overflow-hidden rounded-sm border border-[#E5E7EB]">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-[#F7F9FC] border-b border-[#E5E7EB]">
@@ -73,7 +73,7 @@ export default async function ServicePage({
             {/* Specifications */}
             <section>
               <h2 className="mb-6 text-2xl font-bold text-[#1A1A2E]">Performance Specifications</h2>
-              <div className="overflow-hidden rounded-xl border border-[#E5E7EB]">
+              <div className="overflow-hidden rounded-sm border border-[#E5E7EB]">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-[#F7F9FC] border-b border-[#E5E7EB]">
@@ -102,7 +102,7 @@ export default async function ServicePage({
                 {svc.materials.map((mat) => (
                   <span
                     key={mat}
-                    className="rounded-full border border-[#E5E7EB] bg-white px-3 py-1.5 text-sm text-[#1A1A2E]"
+                    className="rounded-sm border border-[#E5E7EB] bg-white px-3 py-1.5 text-sm text-[#1A1A2E]"
                   >
                     {mat}
                   </span>
@@ -113,7 +113,7 @@ export default async function ServicePage({
             {/* DFM Guidelines */}
             <section>
               <h2 className="mb-4 text-2xl font-bold text-[#1A1A2E]">Design Guidelines</h2>
-              <div className="rounded-xl border border-[#E5E7EB] bg-[#F7F9FC] p-6">
+              <div className="rounded-sm border border-[#E5E7EB] bg-[#F7F9FC] p-6">
                 <ul className="space-y-3">
                   {svc.dfmGuidelines.map((guideline, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-[#1A1A2E]">
@@ -132,7 +132,7 @@ export default async function ServicePage({
                 {svc.industries.map((ind) => (
                   <span
                     key={ind}
-                    className="rounded-full bg-blue-50 px-3 py-1.5 text-sm font-medium text-[#0066FF]"
+                    className="rounded-sm bg-blue-50 px-3 py-1.5 text-sm font-medium text-[#0066FF]"
                   >
                     {ind}
                   </span>
@@ -158,14 +158,14 @@ export default async function ServicePage({
 
           {/* Sticky sidebar CTA */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 rounded-xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+            <div className="sticky top-24 rounded-sm border border-[#E5E7EB] bg-white p-6 shadow-sm">
               <h3 className="mb-2 text-lg font-bold text-[#1A1A2E]">Get a Quote</h3>
               <p className="mb-4 text-sm text-[#6B7280]">
                 Fixed price quote delivered within 24 business hours. DFM feedback included.
               </p>
 
               {svc.costNote && (
-                <div className="mb-4 rounded-lg bg-green-50 border border-green-100 p-3">
+                <div className="mb-4 rounded-sm bg-green-50 border border-green-100 p-3">
                   <p className="text-xs font-semibold uppercase tracking-wider text-green-800">Cost Advantage</p>
                   <p className="text-xs text-green-700 mt-0.5">{svc.costNote}</p>
                 </div>
@@ -173,13 +173,13 @@ export default async function ServicePage({
 
               <Link
                 href="/signup"
-                className="mb-3 flex w-full items-center justify-center gap-2 rounded-md bg-[#0066FF] px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+                className="mb-3 flex w-full items-center justify-center gap-2 rounded-sm bg-[#0066FF] px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700"
               >
                 Start Quote <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/contact"
-                className="flex w-full items-center justify-center rounded-md border border-[#E5E7EB] px-4 py-3 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]"
+                className="flex w-full items-center justify-center rounded-sm border border-[#E5E7EB] px-4 py-3 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]"
               >
                 Talk to an Expert
               </Link>

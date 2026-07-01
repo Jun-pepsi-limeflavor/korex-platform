@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Shield, Clock, Award, Zap, Settings2, Package, Layers, Box, Building2, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { HeroSlideshow } from "@/components/public/HeroSlideshow";
 
 const STATS = [
   { value: "120+", label: "Korean Manufacturing Partners" },
@@ -15,8 +16,6 @@ const SERVICES = [
     description: "5-axis milling, turning, EDM, gear hobbing",
     highlight: "±0.005mm tolerances",
     spec: "50+ materials",
-    Icon: Settings2,
-    color: "bg-blue-50 text-blue-700",
   },
   {
     name: "Injection Molding",
@@ -24,8 +23,6 @@ const SERVICES = [
     description: "Prototype & production tooling, overmolding",
     highlight: "3-week tool turnaround",
     spec: "30+ resins",
-    Icon: Package,
-    color: "bg-violet-50 text-violet-700",
   },
   {
     name: "Sheet Metal Fabrication",
@@ -33,8 +30,6 @@ const SERVICES = [
     description: "Laser cutting, press brake, stamping, welding",
     highlight: "±0.1mm tolerance",
     spec: "12 surface treatments",
-    Icon: Layers,
-    color: "bg-sky-50 text-sky-700",
   },
   {
     name: "Die Casting",
@@ -42,8 +37,6 @@ const SERVICES = [
     description: "HPDC aluminum & zinc, investment casting",
     highlight: "IATF 16949 certified",
     spec: "0.05–50 kg range",
-    Icon: Box,
-    color: "bg-orange-50 text-orange-700",
   },
   {
     name: "Modular Construction",
@@ -51,8 +44,6 @@ const SERVICES = [
     description: "Steel frames, facade panels, MEP pods",
     highlight: "Factory-built precision",
     spec: "±2mm structural tolerance",
-    Icon: Building2,
-    color: "bg-stone-100 text-stone-700",
   },
   {
     name: "Electronics / PCB Assembly",
@@ -60,29 +51,23 @@ const SERVICES = [
     description: "PCB fab, SMT assembly, box build, testing",
     highlight: "IPC Class 2/3",
     spec: "3-day quick-turn",
-    Icon: Cpu,
-    color: "bg-green-50 text-green-700",
   },
 ];
 
 const VALUE_PROPS = [
   {
-    icon: Shield,
     title: "KORUS FTA: Tariff-Free Access",
     body: "Under the Korea-US Free Trade Agreement, the majority of manufactured goods enter the US at 0% import duty. Unlike China-sourced components facing 25%+ tariffs, Korean parts remain cost-competitive regardless of trade policy shifts.",
   },
   {
-    icon: Award,
     title: "Precision That Matches Any Market",
     body: "Korea is home to Doosan, Hwacheon, and Hyundai WIA — manufacturers whose machines hold tolerances to ±0.0005\". The same precision infrastructure supports our partner network. ±0.005mm is our standard, not our limit.",
   },
   {
-    icon: Zap,
     title: "World's Most Automated Manufacturing Economy",
     body: "South Korea operates 1,000+ industrial robots per 10,000 workers — the highest density globally. That automation translates directly to consistency, repeatability, and scalability for your production programs.",
   },
   {
-    icon: Clock,
     title: "Cost Efficiency Without Compromise",
     body: "At current KRW/USD exchange rates (~1,550 KRW per dollar), Korean manufacturing delivers 25–40% cost savings versus US domestic production — without the quality sacrifice or geopolitical risk associated with China sourcing.",
   },
@@ -137,43 +122,43 @@ export default function LandingPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0A1628] text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0D1F3C] to-[#0A1628]" />
-        <div className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8 lg:py-40">
+      <section className="relative min-h-[520px] overflow-hidden bg-[#0A1628] text-white lg:min-h-[600px]">
+        <HeroSlideshow />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8 lg:py-40">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-700/40 bg-blue-900/20 px-3 py-1 text-xs font-medium text-blue-300">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-sm border border-gray-300 px-3 py-1 text-xs font-medium text-gray-200">
               <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
               KORUS FTA · 0% Import Duty · US-Ally Supply Chain
             </div>
             <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight lg:text-6xl">
-              Korean Precision Manufacturing,{" "}
-              <span className="text-[#0066FF]">On Demand.</span>
+              Korean Precision <br/>
+              <span className="whitespace-nowrap">Manufacturing, On Demand.</span>
             </h1>
-            <p className="mb-8 text-xl leading-relaxed text-gray-300">
+            <p className="mb-8 text-xl leading-relaxed text-gray-100">
               Access South Korea&apos;s elite manufacturing network — world-class tolerances, KORUS FTA pricing, and a dedicated account team. From prototype to production.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/signup"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#0066FF] px-8 py-3.5 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#0066FF] px-8 py-3.5 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
               >
                 Get Instant Quote
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/how-it-works"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-gray-600 px-8 py-3.5 text-base font-medium text-gray-200 hover:bg-white/5 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-sm border border-white-300 px-8 py-3.5 text-base font-medium text-white-300 hover:bg-white/5 transition-colors"
               >
                 See How It Works
               </Link>
             </div>
             <div className="mt-6 space-y-2">
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-300">
                 STEP · STP · IGES · DXF · DWG · PDF — All uploads are encrypted and confidential.
               </p>
               <div className="flex flex-wrap gap-3">
                 {["ISO 9001:2015", "IATF 16949", "AS9100D", "KORUS FTA", "ITAR-Compliant"].map((cert) => (
-                  <span key={cert} className="rounded-sm border border-gray-700 px-2 py-0.5 text-xs text-gray-400">
+                  <span key={cert} className="rounded-sm border border-gray-500 px-2 py-0.5 text-xs text-gray-300">
                     {cert}
                   </span>
                 ))}
@@ -207,35 +192,29 @@ export default function LandingPage() {
             Six manufacturing disciplines. One platform. One account manager.
           </p>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((svc) => {
-              const Icon = svc.Icon;
-              return (
-                <div
-                  key={svc.slug}
-                  className="group rounded-xl border border-[#E5E7EB] bg-white p-6 shadow-sm hover:border-[#0066FF]/30 hover:shadow-md transition-all"
-                >
-                  <div className={`mb-4 inline-flex h-9 w-9 items-center justify-center rounded-lg ${svc.color}`}>
-                    <Icon className="h-4 w-4" />
-                  </div>
-                  <h3 className="mb-2 text-lg font-semibold text-[#1A1A2E]">{svc.name}</h3>
-                  <p className="mb-4 text-sm text-[#6B7280] leading-relaxed">{svc.description}</p>
-                  <div className="mb-4 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-blue-50 px-3 py-0.5 text-xs font-medium text-[#0066FF]">
-                      {svc.highlight}
-                    </span>
-                    <span className="rounded-full bg-gray-100 px-3 py-0.5 text-xs font-medium text-[#6B7280]">
-                      {svc.spec}
-                    </span>
-                  </div>
-                  <Link
-                    href={`/capabilities/${svc.slug}`}
-                    className="inline-flex items-center gap-1 text-sm font-medium text-[#0066FF] group-hover:gap-2 transition-all"
-                  >
-                    Learn More <ArrowRight className="h-3 w-3" />
-                  </Link>
+            {SERVICES.map((svc) => (
+              <div
+                key={svc.slug}
+                className="group rounded-sm border border-[#E5E7EB] bg-white p-6 shadow-sm hover:border-[#0066FF]/30 hover:shadow-md transition-all"
+              >
+                <h3 className="mb-2 text-lg font-semibold text-[#1A1A2E]">{svc.name}</h3>
+                <p className="mb-4 text-sm text-[#6B7280] leading-relaxed">{svc.description}</p>
+                <div className="mb-4 flex flex-wrap gap-2">
+                  <span className="rounded-sm bg-blue-50 px-3 py-0.5 text-xs font-medium text-[#0066FF]">
+                    {svc.highlight}
+                  </span>
+                  <span className="rounded-sm bg-gray-100 px-3 py-0.5 text-xs font-medium text-[#6B7280]">
+                    {svc.spec}
+                  </span>
                 </div>
-              );
-            })}
+                <Link
+                  href={`/capabilities/${svc.slug}`}
+                  className="inline-flex items-center gap-1 text-sm font-medium text-[#0066FF] group-hover:gap-2 transition-all"
+                >
+                  Learn More <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -250,7 +229,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {STEPS.map((step) => (
               <div key={step.num} className="relative">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#0A1628]">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-sm bg-[#0A1628]">
                   <span className="spec-value text-sm font-bold text-white">{step.num}</span>
                 </div>
                 <h3 className="mb-3 text-xl font-semibold text-[#1A1A2E]">{step.title}</h3>
@@ -269,20 +248,12 @@ export default function LandingPage() {
             Four structural advantages that no other manufacturing region can match simultaneously.
           </p>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {VALUE_PROPS.map((vp) => {
-              const Icon = vp.icon;
-              return (
-                <div key={vp.title} className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0066FF]/20">
-                    <Icon className="h-5 w-5 text-[#0066FF]" />
-                  </div>
-                  <div>
-                    <h3 className="mb-2 font-semibold text-white">{vp.title}</h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">{vp.body}</p>
-                  </div>
-                </div>
-              );
-            })}
+            {VALUE_PROPS.map((vp) => (
+              <div key={vp.title} className="border-l-2 border-[#0066FF] pl-5">
+                <h3 className="mb-2 font-semibold text-white">{vp.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{vp.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -297,9 +268,9 @@ export default function LandingPage() {
             {TESTIMONIALS.map((t) => (
               <div
                 key={t.name}
-                className="rounded-xl border border-[#E5E7EB] bg-white p-6 shadow-sm"
+                className="rounded-sm border border-[#E5E7EB] bg-white p-6 shadow-sm"
               >
-                <div className="mb-4 inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">
+                <div className="mb-4 inline-flex items-center rounded-sm bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">
                   {t.metric}
                 </div>
                 <p className="mb-4 text-sm text-[#1A1A2E] leading-relaxed italic">
@@ -327,7 +298,7 @@ export default function LandingPage() {
           </p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-md bg-white px-8 py-3.5 text-base font-semibold text-[#0066FF] hover:bg-blue-50 transition-colors"
+            className="inline-flex items-center gap-2 rounded-sm bg-white px-8 py-3.5 text-base font-semibold text-[#0066FF] hover:bg-blue-50 transition-colors"
           >
             Get Instant Quote
             <ArrowRight className="h-4 w-4" />

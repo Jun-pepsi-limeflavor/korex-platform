@@ -23,7 +23,7 @@ const ORDER_COLORS: Record<OrderStatus, string> = {
 
 export function QuoteStatusBadge({ status }: { status: QuoteStatus }) {
   return (
-    <span className={cn("rounded-full px-2.5 py-0.5 text-xs font-medium", QUOTE_COLORS[status])}>
+    <span className={cn("rounded-sm px-2.5 py-0.5 text-xs font-medium", QUOTE_COLORS[status])}>
       {QUOTE_STATUS_LABELS[status]}
     </span>
   );
@@ -31,7 +31,7 @@ export function QuoteStatusBadge({ status }: { status: QuoteStatus }) {
 
 export function OrderStatusBadge({ status }: { status: OrderStatus }) {
   return (
-    <span className={cn("rounded-full px-2.5 py-0.5 text-xs font-medium", ORDER_COLORS[status])}>
+    <span className={cn("rounded-sm px-2.5 py-0.5 text-xs font-medium", ORDER_COLORS[status])}>
       {ORDER_STATUS_LABELS[status]}
     </span>
   );

@@ -44,14 +44,14 @@ export default function LoginPage() {
 
   return (
     <div className="w-full max-w-md">
-      <div className="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-sm">
+      <div className="rounded-sm border border-[#E5E7EB] bg-white p-8 shadow-sm">
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-[#1A1A2E]">Welcome Back</h1>
           <p className="mt-1 text-sm text-[#6B7280]">Log in to your formadikor account</p>
         </div>
 
         {serverError && (
-          <div className="mb-4 flex items-start gap-2 rounded-md bg-red-50 border border-red-200 p-3">
+          <div className="mb-4 flex items-start gap-2 rounded-sm bg-red-50 border border-red-200 p-3">
             <AlertCircle className="h-4 w-4 shrink-0 text-red-500 mt-0.5" />
             <p className="text-sm text-red-700">{serverError}</p>
           </div>
@@ -65,7 +65,7 @@ export default function LoginPage() {
               type="email"
               autoComplete="email"
               className={cn(
-                "w-full rounded-md border px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]",
+                "w-full rounded-sm border px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]",
                 errors.email ? "border-red-400" : "border-[#E5E7EB]"
               )}
             />
@@ -80,7 +80,7 @@ export default function LoginPage() {
                 type={showPw ? "text" : "password"}
                 autoComplete="current-password"
                 className={cn(
-                  "w-full rounded-md border px-3 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]",
+                  "w-full rounded-sm border px-3 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]",
                   errors.password ? "border-red-400" : "border-[#E5E7EB]"
                 )}
               />
@@ -98,7 +98,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-md bg-[#0066FF] py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full rounded-sm bg-[#0066FF] py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {loading ? "Signing In..." : "Log In"}
           </button>

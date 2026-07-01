@@ -65,7 +65,7 @@ export function DashboardSidebar() {
                 <Link
                   href={href}
                   className={cn(
-                    "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                    "flex items-center gap-3 rounded-sm px-3 py-2 text-sm font-medium transition-colors",
                     isActive
                       ? "bg-[#EEF4FF] text-[#0066FF]"
                       : "text-[#6B7280] hover:bg-[#F7F9FC] hover:text-[#1A1A2E]"
@@ -83,7 +83,7 @@ export function DashboardSidebar() {
       {/* Account Manager Card */}
       <div className="border-t border-[#E5E7EB] px-3 py-4">
         {manager ? (
-          <div className="rounded-md bg-[#F7F9FC] p-3">
+          <div className="rounded-sm bg-[#F7F9FC] p-3">
             <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-[#6B7280]">
               Your Account Manager
             </p>
@@ -113,7 +113,7 @@ export function DashboardSidebar() {
             </div>
           </div>
         ) : (
-          <div className="rounded-md bg-[#F7F9FC] p-3 text-xs text-[#6B7280]">
+          <div className="rounded-sm bg-[#F7F9FC] p-3 text-xs text-[#6B7280]">
             <p className="font-medium text-[#1A1A2E] mb-1">Account Manager</p>
             <p>Being assigned — we&apos;ll notify you shortly.</p>
           </div>
@@ -124,7 +124,7 @@ export function DashboardSidebar() {
       <div className="border-t border-[#E5E7EB] px-3 py-3">
         <button
           onClick={handleLogout}
-          className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-50"
+          className="flex w-full items-center gap-3 rounded-sm px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-50"
         >
           <LogOut className="h-4 w-4" />
           Log Out

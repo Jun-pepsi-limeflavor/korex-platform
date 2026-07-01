@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, Upload, MessageSquare, Package, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 const STEPS = [
   {
     num: "01",
-    icon: Upload,
     title: "Upload & Configure",
     description: "Upload your CAD file or drawing. Select manufacturing process, material, finish, quantity, and target delivery date. Our system generates a preliminary assessment within minutes.",
     details: [
@@ -16,7 +15,6 @@ const STEPS = [
   },
   {
     num: "02",
-    icon: MessageSquare,
     title: "Quote & Review",
     description: "Your dedicated account manager reviews DFM (Design for Manufacturability), confirms specifications, and delivers a fixed price quote with guaranteed lead time — typically within 24 hours.",
     details: [
@@ -28,7 +26,6 @@ const STEPS = [
   },
   {
     num: "03",
-    icon: Package,
     title: "Manufacture & Deliver",
     description: "Parts are produced at our vetted Korean partner facilities, inspected to spec, and shipped directly to your facility. Track every step in your dashboard.",
     details: [
@@ -79,47 +76,42 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* Steps */}
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
-            {STEPS.map((step, i) => {
-              const Icon = step.icon;
-              return (
-                <div key={step.num} className="flex gap-8">
-                  <div className="flex flex-col items-center">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#0066FF] text-white">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    {i < STEPS.length - 1 && <div className="mt-4 flex-1 w-px bg-[#E5E7EB]" style={{ minHeight: 80 }} />}
+            {STEPS.map((step, i) => (
+              <div key={step.num} className="flex gap-8">
+                <div className="flex flex-col items-center">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-[#0066FF] text-white">
+                    <span className="spec-value text-sm font-bold">{step.num}</span>
                   </div>
-                  <div className="pb-8">
-                    <div className="mb-1 text-xs font-bold uppercase tracking-widest text-[#0066FF]">Step {step.num}</div>
-                    <h2 className="mb-3 text-2xl font-bold text-[#1A1A2E]">{step.title}</h2>
-                    <p className="mb-4 text-[#6B7280] leading-relaxed">{step.description}</p>
-                    <ul className="space-y-2">
-                      {step.details.map((d) => (
-                        <li key={d} className="flex items-start gap-2 text-sm text-[#1A1A2E]">
-                          <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {i < STEPS.length - 1 && <div className="mt-4 flex-1 w-px bg-[#E5E7EB]" style={{ minHeight: 80 }} />}
                 </div>
-              );
-            })}
+                <div className="pb-8">
+                  <div className="mb-1 text-xs font-bold uppercase tracking-widest text-[#0066FF]">Step {step.num}</div>
+                  <h2 className="mb-3 text-2xl font-bold text-[#1A1A2E]">{step.title}</h2>
+                  <p className="mb-4 text-[#6B7280] leading-relaxed">{step.description}</p>
+                  <ul className="space-y-2">
+                    {step.details.map((d) => (
+                      <li key={d} className="flex items-start gap-2 text-sm text-[#1A1A2E]">
+                        <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="bg-[#F7F9FC] py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-12 text-center text-3xl font-bold text-[#1A1A2E]">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {FAQS.map((faq) => (
-              <div key={faq.q} className="rounded-xl border border-[#E5E7EB] bg-white p-5">
+              <div key={faq.q} className="rounded-sm border border-[#E5E7EB] bg-white p-5">
                 <h3 className="mb-2 font-semibold text-[#1A1A2E]">{faq.q}</h3>
                 <p className="text-sm text-[#6B7280] leading-relaxed">{faq.a}</p>
               </div>
@@ -128,14 +120,13 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-[#0066FF] py-16 text-white">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="mb-3 text-3xl font-bold">Ready to Start?</h2>
           <p className="mb-6 text-blue-100">Create a free account and submit your first quote in under 5 minutes.</p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-md bg-white px-8 py-3 text-base font-semibold text-[#0066FF] hover:bg-blue-50"
+            className="inline-flex items-center gap-2 rounded-sm bg-white px-8 py-3 text-base font-semibold text-[#0066FF] hover:bg-blue-50"
           >
             Get Instant Quote <ArrowRight className="h-4 w-4" />
           </Link>

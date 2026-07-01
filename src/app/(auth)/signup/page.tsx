@@ -81,7 +81,7 @@ export default function SignupPage() {
 
   return (
     <div className="w-full max-w-lg">
-      <div className="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-sm">
+      <div className="rounded-sm border border-[#E5E7EB] bg-white p-8 shadow-sm">
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-[#1A1A2E]">Create Your Account</h1>
           <p className="mt-1 text-sm text-[#6B7280]">
@@ -90,7 +90,7 @@ export default function SignupPage() {
         </div>
 
         {serverError && (
-          <div className="mb-4 flex items-start gap-2 rounded-md bg-red-50 border border-red-200 p-3">
+          <div className="mb-4 flex items-start gap-2 rounded-sm bg-red-50 border border-red-200 p-3">
             <AlertCircle className="h-4 w-4 shrink-0 text-red-500 mt-0.5" />
             <p className="text-sm text-red-700">{serverError}</p>
           </div>
@@ -102,7 +102,7 @@ export default function SignupPage() {
               <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">First Name *</label>
               <input
                 {...register("firstName")}
-                className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.firstName ? "border-red-400" : "border-[#E5E7EB]")}
+                className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.firstName ? "border-red-400" : "border-[#E5E7EB]")}
               />
               {errors.firstName && <p className="mt-0.5 text-xs text-red-500">{errors.firstName.message}</p>}
             </div>
@@ -110,7 +110,7 @@ export default function SignupPage() {
               <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Last Name *</label>
               <input
                 {...register("lastName")}
-                className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.lastName ? "border-red-400" : "border-[#E5E7EB]")}
+                className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.lastName ? "border-red-400" : "border-[#E5E7EB]")}
               />
               {errors.lastName && <p className="mt-0.5 text-xs text-red-500">{errors.lastName.message}</p>}
             </div>
@@ -120,7 +120,7 @@ export default function SignupPage() {
             <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Company Name *</label>
             <input
               {...register("company")}
-              className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.company ? "border-red-400" : "border-[#E5E7EB]")}
+              className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.company ? "border-red-400" : "border-[#E5E7EB]")}
             />
             {errors.company && <p className="mt-0.5 text-xs text-red-500">{errors.company.message}</p>}
           </div>
@@ -131,7 +131,7 @@ export default function SignupPage() {
               {...register("email")}
               type="email"
               placeholder="you@yourcompany.com"
-              className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.email ? "border-red-400" : "border-[#E5E7EB]")}
+              className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.email ? "border-red-400" : "border-[#E5E7EB]")}
             />
             {errors.email && <p className="mt-0.5 text-xs text-red-500">{errors.email.message}</p>}
             <p className="mt-0.5 text-xs text-[#6B7280]">Business email required (no Gmail/Hotmail)</p>
@@ -143,7 +143,7 @@ export default function SignupPage() {
               <input
                 {...register("password")}
                 type={showPw ? "text" : "password"}
-                className={cn("w-full rounded-md border px-3 py-2 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.password ? "border-red-400" : "border-[#E5E7EB]")}
+                className={cn("w-full rounded-sm border px-3 py-2 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.password ? "border-red-400" : "border-[#E5E7EB]")}
               />
               <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-2.5 text-[#6B7280]">
                 {showPw ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -159,7 +159,7 @@ export default function SignupPage() {
               <input
                 {...register("confirmPassword")}
                 type={showConfirm ? "text" : "password"}
-                className={cn("w-full rounded-md border px-3 py-2 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.confirmPassword ? "border-red-400" : "border-[#E5E7EB]")}
+                className={cn("w-full rounded-sm border px-3 py-2 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.confirmPassword ? "border-red-400" : "border-[#E5E7EB]")}
               />
               <button type="button" onClick={() => setShowConfirm(!showConfirm)} className="absolute right-3 top-2.5 text-[#6B7280]">
                 {showConfirm ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -175,7 +175,7 @@ export default function SignupPage() {
                 {...register("phone")}
                 type="tel"
                 placeholder="+1 (555) 000-0000"
-                className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.phone ? "border-red-400" : "border-[#E5E7EB]")}
+                className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]", errors.phone ? "border-red-400" : "border-[#E5E7EB]")}
               />
               {errors.phone && <p className="mt-0.5 text-xs text-red-500">{errors.phone.message}</p>}
             </div>
@@ -183,7 +183,7 @@ export default function SignupPage() {
               <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Country *</label>
               <select
                 {...register("country")}
-                className={cn("w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF] bg-white", errors.country ? "border-red-400" : "border-[#E5E7EB]")}
+                className={cn("w-full rounded-sm border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF] bg-white", errors.country ? "border-red-400" : "border-[#E5E7EB]")}
               >
                 <option value="">Select country</option>
                 {COUNTRIES.map((c) => (
@@ -199,7 +199,7 @@ export default function SignupPage() {
             <input
               {...register("jobTitle")}
               placeholder="e.g. Mechanical Engineer, VP of Operations"
-              className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+              className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
             />
           </div>
 
@@ -207,7 +207,7 @@ export default function SignupPage() {
             <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">How did you hear about us? <span className="text-[#6B7280]">(optional)</span></label>
             <select
               {...register("hearAboutUs")}
-              className="w-full rounded-md border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF] bg-white"
+              className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF] bg-white"
             >
               <option value="">Select...</option>
               <option value="linkedin">LinkedIn</option>
@@ -249,7 +249,7 @@ export default function SignupPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-md bg-[#0066FF] py-3 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full rounded-sm bg-[#0066FF] py-3 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {loading ? "Creating Account..." : "Create Account"}
           </button>

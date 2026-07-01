@@ -58,13 +58,13 @@ export function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="flex items-center gap-2 rounded-md border border-[#E5E7EB] px-3 py-1.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]"
+                  className="flex items-center gap-2 rounded-sm border border-[#E5E7EB] px-3 py-1.5 text-sm font-medium text-[#1A1A2E] hover:bg-[#F7F9FC]"
                 >
                   <span>{userProfile?.firstName ?? "Account"}</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {userMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 rounded-md border border-[#E5E7EB] bg-white shadow-lg">
+                  <div className="absolute right-0 mt-2 w-48 rounded-sm border border-[#E5E7EB] bg-white shadow-lg">
                     <Link
                       href="/dashboard"
                       className="block px-4 py-2 text-sm text-[#1A1A2E] hover:bg-[#F7F9FC]"
@@ -99,7 +99,7 @@ export function Navbar() {
                 </Link>
                 <Link
                   href="/signup"
-                  className="rounded-md bg-[#0066FF] px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                  className="rounded-sm bg-[#0066FF] px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
                 >
                   Get Instant Quote
                 </Link>
@@ -139,7 +139,7 @@ export function Navbar() {
           ) : (
             <>
               <Link href="/login" className="block text-sm font-medium text-[#6B7280]" onClick={() => setMobileOpen(false)}>Log In</Link>
-              <Link href="/signup" className="block rounded-md bg-[#0066FF] px-4 py-2 text-center text-sm font-medium text-white" onClick={() => setMobileOpen(false)}>Get Instant Quote</Link>
+              <Link href="/signup" className="block rounded-sm bg-[#0066FF] px-4 py-2 text-center text-sm font-medium text-white" onClick={() => setMobileOpen(false)}>Get Instant Quote</Link>
             </>
           )}
         </div>

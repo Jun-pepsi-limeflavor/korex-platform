@@ -29,14 +29,14 @@ export default function QuotesPage() {
         <h1 className="text-2xl font-bold text-[#1A1A2E]">My Quotes</h1>
         <Link
           href="/dashboard/quote/new"
-          className="flex items-center gap-2 rounded-md bg-[#0066FF] px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+          className="flex items-center gap-2 rounded-sm bg-[#0066FF] px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
         >
           <PlusCircle className="h-4 w-4" />
           New Quote
         </Link>
       </div>
 
-      <div className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden">
+      <div className="rounded-sm border border-[#E5E7EB] bg-white overflow-hidden">
         {loading ? (
           <div className="py-12 text-center text-sm text-[#6B7280]">Loading quotes...</div>
         ) : quotes.length === 0 ? (
