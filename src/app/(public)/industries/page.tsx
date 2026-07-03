@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { NorthwindCaseStudy } from "@/components/public/NorthwindCaseStudy";
 
 interface Industry {
   name: string;
@@ -119,7 +120,9 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 border-t border-[#E5E7EB]">
+      <NorthwindCaseStudy />
+
+      <section className="bg-[#F7F9FC] py-16 border-t border-[#E5E7EB]">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="mb-3 text-2xl font-bold text-[#1A1A2E]">Your Industry. Korean Standards.</h2>
           <p className="mb-8 text-[#6B7280]">
