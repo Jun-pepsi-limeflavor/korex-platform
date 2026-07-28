@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { SUPPORT_EMAIL } from "@/lib/constants/support";
 
 const STEPS = [
   {
@@ -60,7 +61,7 @@ const FAQS = [
   },
   {
     q: "How is my IP protected?",
-    a: "All uploaded files are encrypted at rest (AES-256). NDAs are available upon request — just email support@formadikor.io before submitting files. We operate under strict confidentiality agreements with all partner facilities.",
+    a: `All uploaded files are encrypted at rest (AES-256). NDAs are available upon request — just email ${SUPPORT_EMAIL} before submitting files. We operate under strict confidentiality agreements with all partner facilities.`,
   },
 ];
 

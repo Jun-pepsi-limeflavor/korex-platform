@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/layout/BrandLogo";
+import { SUPPORT_EMAIL } from "@/lib/constants/support";
 
 export function Footer() {
   return (
@@ -71,13 +72,8 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <a href="mailto:support@formadikor.io" className="hover:text-white transition-colors">
-                  support@formadikor.io
-                </a>
-              </li>
-              <li>
-                <a href="tel:+18005550000" className="hover:text-white transition-colors">
-                  +1 (800) 555-0000
+                <a href={`mailto:${SUPPORT_EMAIL}`} className="hover:text-white transition-colors">
+                  {SUPPORT_EMAIL}
                 </a>
               </li>
             </ul>

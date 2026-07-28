@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { HeroSlideshow } from "@/components/public/HeroSlideshow";
+import { SUPPORT_EMAIL } from "@/lib/constants/support";
 
 const STATS = [
   { value: "120+", label: "Korean Manufacturing Partners" },
@@ -305,8 +306,8 @@ export default function LandingPage() {
           </Link>
           <p className="mt-4 text-sm text-blue-200">
             Or speak with an account manager:{" "}
-            <a href="mailto:support@formadikor.io" className="underline">
-              support@formadikor.io
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="underline">
+              {SUPPORT_EMAIL}
             </a>
           </p>
         </div>

@@ -9,16 +9,20 @@ import {
   Package,
   User,
   LogOut,
-  MessageSquare,
   Mail,
+  MapPin,
 } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { useAuth } from "@/context/AuthContext";
 import { logOut } from "@/lib/firebase/auth";
-import { useState, useEffect } from "react";
-import { getManager } from "@/lib/api/client";
-import type { Manager } from "@/types";
 import { BrandLogo } from "@/components/layout/BrandLogo";
+import { SUPPORT_EMAIL } from "@/lib/constants/support";
+
+const ACCOUNT_MANAGER = {
+  name: "Song Joon Ha",
+  location: "Korea",
+  email: SUPPORT_EMAIL,
+};
 
 const NAV_ITEMS = [
   { icon: LayoutDashboard, label: "Overview", href: "/dashboard" },
@@ -32,13 +36,7 @@ export function DashboardSidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const { userProfile } = useAuth();
-  const [manager, setManager] = useState<Manager | null>(null);
-
-  useEffect(() => {
-    if (userProfile?.assignedManagerId) {
-      getManager(userProfile.assignedManagerId).then(setManager);
-    }
-  }, [userProfile?.assignedManagerId]);
+  const hasAssignedManager = Boolean(userProfile?.assignedManagerId);
 
   const handleLogout = async () => {
     await logOut();
@@ -47,12 +45,10 @@ export function DashboardSidebar() {
 
   return (
     <aside className="flex h-full w-64 flex-col border-r border-[#E5E7EB] bg-white">
-      {/* Logo */}
       <div className="flex h-16 items-center border-b border-[#E5E7EB] px-6">
         <BrandLogo href="/" size="sm" />
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 overflow-y-auto px-3 py-4">
         <ul className="space-y-1">
           {NAV_ITEMS.map(({ icon: Icon, label, href }) => {
@@ -80,37 +76,31 @@ export function DashboardSidebar() {
         </ul>
       </nav>
 
-      {/* Account Manager Card */}
       <div className="border-t border-[#E5E7EB] px-3 py-4">
-        {manager ? (
+        {hasAssignedManager ? (
           <div className="rounded-sm bg-[#F7F9FC] p-3">
             <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-[#6B7280]">
               Your Account Manager
             </p>
-            <div className="flex items-center gap-2 mb-2">
+            <div className="mb-3 flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0066FF] text-white text-xs font-bold">
-                {manager.name.charAt(0)}
+                {ACCOUNT_MANAGER.name.charAt(0)}
               </div>
               <div>
-                <p className="text-sm font-medium text-[#1A1A2E]">{manager.name}</p>
+                <p className="text-sm font-medium text-[#1A1A2E]">{ACCOUNT_MANAGER.name}</p>
+                <p className="flex items-center gap-1 text-xs text-[#6B7280]">
+                  <MapPin className="h-3 w-3" />
+                  {ACCOUNT_MANAGER.location}
+                </p>
               </div>
             </div>
-            <div className="flex gap-2">
-              <a
-                href={`mailto:${manager.email}`}
-                className="flex-1 flex items-center justify-center gap-1 rounded border border-[#E5E7EB] px-2 py-1 text-xs text-[#6B7280] hover:bg-white"
-              >
-                <Mail className="h-3 w-3" />
-                Email
-              </a>
-              <a
-                href={`tel:${manager.phone}`}
-                className="flex-1 flex items-center justify-center gap-1 rounded border border-[#E5E7EB] px-2 py-1 text-xs text-[#6B7280] hover:bg-white"
-              >
-                <MessageSquare className="h-3 w-3" />
-                Call
-              </a>
-            </div>
+            <a
+              href={`mailto:${ACCOUNT_MANAGER.email}`}
+              className="flex w-full items-center justify-center gap-1 rounded-sm border border-[#E5E7EB] px-2 py-1.5 text-xs text-[#6B7280] hover:bg-white"
+            >
+              <Mail className="h-3 w-3" />
+              {ACCOUNT_MANAGER.email}
+            </a>
           </div>
         ) : (
           <div className="rounded-sm bg-[#F7F9FC] p-3 text-xs text-[#6B7280]">
@@ -120,7 +110,6 @@ export function DashboardSidebar() {
         )}
       </div>
 
-      {/* Bottom actions */}
       <div className="border-t border-[#E5E7EB] px-3 py-3">
         <button
           onClick={handleLogout}

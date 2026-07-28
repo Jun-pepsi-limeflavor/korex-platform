@@ -3,36 +3,29 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Mail, Phone, Clock, CheckCircle } from "lucide-react";
+import { Mail, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
-
-const schema = z.object({
-  firstName: z.string().min(1, "Required"),
-  lastName: z.string().min(1, "Required"),
-  company: z.string().min(1, "Required"),
-  email: z.string().email("Invalid email").refine(
-    (e) => !["gmail.com", "yahoo.com", "hotmail.com", "outlook.com"].includes(e.split("@")[1]),
-    "Business email required"
-  ),
-  phone: z.string().optional(),
-  country: z.string().optional(),
-  process: z.string().min(1, "Please select a process"),
-  volume: z.string().min(1, "Please select a volume"),
-  description: z.string().max(500, "Max 500 characters").optional(),
-  hearAboutUs: z.string().optional(),
-});
-
-type FormData = z.infer<typeof schema>;
+import { SUPPORT_EMAIL } from "@/lib/constants/support";
+import { contactInquirySchema, type ContactInquiryInput } from "@/lib/schemas/contact";
+import { submitContactInquiry } from "@/lib/api/client";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactInquiryInput>({ resolver: zodResolver(contactInquirySchema) });
 
-  const onSubmit = async (_data: FormData) => {
-    // In production: write to Firestore /leads collection
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitted(true);
+  const onSubmit = async (data: ContactInquiryInput) => {
+    setSubmitError(null);
+    try {
+      await submitContactInquiry(data);
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Failed to send message.");
+    }
   };
 
   if (submitted) {
@@ -61,7 +54,6 @@ export default function ContactPage() {
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
-            {/* Left: contact info */}
             <div className="lg:col-span-2 space-y-6">
               <div>
                 <h2 className="mb-4 text-xl font-bold text-[#1A1A2E]">Contact Information</h2>
@@ -70,14 +62,9 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-[#0066FF] mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-[#1A1A2E]">Email</p>
-                      <a href="mailto:support@formadikor.io" className="text-sm text-[#6B7280] hover:text-[#0066FF]">support@formadikor.io</a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-[#0066FF] mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-[#1A1A2E]">Phone</p>
-                      <a href="tel:+18005550000" className="text-sm text-[#6B7280] hover:text-[#0066FF]">+1 (800) 555-0000</a>
+                      <a href={`mailto:${SUPPORT_EMAIL}`} className="text-sm text-[#6B7280] hover:text-[#0066FF]">
+                        {SUPPORT_EMAIL}
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -101,9 +88,15 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right: form */}
             <div className="lg:col-span-3">
               <form onSubmit={handleSubmit(onSubmit)} className="rounded-sm border border-[#E5E7EB] bg-white p-6 shadow-sm space-y-4">
+                {submitError && (
+                  <div className="flex items-start gap-2 rounded-sm border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+                    <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                    {submitError}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">First Name *</label>
@@ -126,15 +119,9 @@ export default function ContactPage() {
                   {errors.email && <p className="mt-0.5 text-xs text-red-500">{errors.email.message}</p>}
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Phone</label>
-                    <input {...register("phone")} type="tel" className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]" />
-                  </div>
-                  <div>
-                    <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Country / Region</label>
-                    <input {...register("country")} className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]" />
-                  </div>
+                <div>
+                  <label className="mb-1 block text-xs font-medium text-[#1A1A2E]">Country / Region</label>
+                  <input {...register("country")} className="w-full rounded-sm border border-[#E5E7EB] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]" />
                 </div>
 
                 <div>
@@ -187,9 +174,10 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-sm bg-[#0066FF] py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full rounded-sm bg-[#0066FF] py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
 
                 <p className="text-center text-xs text-[#6B7280]">

@@ -166,3 +166,23 @@ export async function uploadQuoteFile(
     fileSize: data.fileSize,
   };
 }
+
+// ─── Contact ─────────────────────────────────────────────────────────────────
+
+export async function submitContactInquiry(
+  data: import("@/lib/schemas/contact").ContactInquiryInput
+): Promise<string> {
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const payload = await res.json().catch(() => ({}));
+    throw new Error(payload.error || "Failed to submit inquiry.");
+  }
+
+  const { id } = await res.json();
+  return id;
+}

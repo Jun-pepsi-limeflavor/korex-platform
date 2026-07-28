@@ -136,6 +136,24 @@ export interface Manager {
   specialties: ManufacturingProcess[];
 }
 
+export type ContactInquiryStatus = "new" | "contacted" | "closed";
+
+export interface ContactInquiry {
+  id: string;
+  firstName: string;
+  lastName: string;
+  company: string;
+  email: string;
+  phone?: string;
+  country?: string;
+  process: string;
+  volume: string;
+  description?: string;
+  hearAboutUs?: string;
+  status: ContactInquiryStatus;
+  createdAt: Date;
+}
+
 export const SERVICE_SLUGS = {
   cnc_machining: "cnc-machining",
   injection_molding: "injection-molding",
