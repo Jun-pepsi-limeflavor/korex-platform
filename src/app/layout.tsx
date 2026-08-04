@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { AuthProvider } from "@/context/AuthContext";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { ChannelTalk } from "@/components/analytics/ChannelTalk";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,6 +51,7 @@ export default function RootLayout({
       <body className="min-h-full font-sans">
         <AuthProvider>{children}</AuthProvider>
         <GoogleAnalytics />
+        <ChannelTalk />
       </body>
     </html>
   );
