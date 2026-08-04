@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/layout/BrandLogo";
-import { SUPPORT_EMAIL } from "@/lib/constants/support";
+import { SUPPORT_EMAIL, SUPPORT_PHONE_US, SUPPORT_PHONE_US_TEL } from "@/lib/constants/support";
 
 export function Footer() {
   return (
@@ -70,17 +70,22 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-400">Contact</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <a href={`mailto:${SUPPORT_EMAIL}`} className="hover:text-white transition-colors">
                   {SUPPORT_EMAIL}
                 </a>
               </li>
+              <li>
+                <p className="text-xs font-medium uppercase tracking-wider text-gray-500 mb-0.5">US</p>
+                <a
+                  href={`tel:${SUPPORT_PHONE_US_TEL}`}
+                  className="text-base font-medium text-gray-400 hover:text-[#0066FF] transition-colors"
+                >
+                  {SUPPORT_PHONE_US}
+                </a>
+              </li>
             </ul>
-            <div className="mt-4">
-              <p className="text-xs text-gray-500">Incheon → LAX in 24h air freight</p>
-              <p className="text-xs text-gray-500">12–15 day sea freight to West Coast</p>
-            </div>
           </div>
         </div>
 

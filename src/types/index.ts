@@ -142,14 +142,16 @@ export interface ContactInquiry {
   id: string;
   firstName: string;
   lastName: string;
-  company: string;
+  company?: string;
   email: string;
   phone?: string;
   country?: string;
-  process: string;
-  volume: string;
+  process?: string;
+  volume?: string;
   description?: string;
   hearAboutUs?: string;
+  /** Same metadata shape as quote/order Drive attachments */
+  files: QuoteFile[];
   status: ContactInquiryStatus;
   createdAt: Date;
 }

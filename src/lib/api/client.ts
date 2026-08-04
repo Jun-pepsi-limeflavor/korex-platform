@@ -186,3 +186,33 @@ export async function submitContactInquiry(
   const { id } = await res.json();
   return id;
 }
+
+export async function uploadContactFile(
+  contactId: string,
+  email: string,
+  file: File,
+  onProgress?: (percent: number) => void
+): Promise<{ fileName: string; driveFileId: string; viewUrl: string; fileSize: number }> {
+  onProgress?.(0);
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("contactId", contactId);
+  formData.append("email", email);
+
+  const res = await fetch("/api/contact/upload", { method: "POST", body: formData });
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.error || "Failed to upload file.");
+  }
+
+  onProgress?.(100);
+
+  return {
+    fileName: data.fileName,
+    driveFileId: data.fileId,
+    viewUrl: data.viewUrl,
+    fileSize: data.fileSize,
+  };
+}
